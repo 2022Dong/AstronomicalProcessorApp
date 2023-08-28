@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -20,9 +21,25 @@ namespace AstronomicalProcessorApp
 
             // Load events: TextBox_KeyPress(...)
             LoadTxtKeyPress();
+            PopulateComboBox();
         }
 
         #region Textbox Events
+        // Create a custom method to populate the ComboBox to read bodies from a simple text file. 
+        private void PopulateComboBox()
+        {
+            string filePath = "bodies.txt";
+            try
+            {
+                string[] bodies = File.ReadAllLines(filePath); // read all lines from file
+                cboBody.Items.AddRange(bodies); // add bodies to ComboBox
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reading bodies from file: {ex.Message}");
+            }
+        }
+
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -53,7 +70,7 @@ namespace AstronomicalProcessorApp
             txtObservedWavelength.KeyPress += TextBox_KeyPress;
             txtRestWavelength.KeyPress += TextBox_KeyPress;
             txtArcsecondsAngle.KeyPress += TextBox_KeyPress;
-            txtBlackholeMass.KeyPress += TextBox_KeyPress;
+            txtMassBase.KeyPress += TextBox_KeyPress;
             txtPow.KeyPress += TextBox_KeyPress;
             txtCelsius.KeyPress += TextBox_KeyPress;
         }
@@ -111,21 +128,21 @@ namespace AstronomicalProcessorApp
             }
         }
 
-        private void txtBlackholeMass_Enter(object sender, EventArgs e)
+        private void txtMassBase_Enter(object sender, EventArgs e)
         {
-            if (txtBlackholeMass.Text == "Blackhole Mass:")
+            if (txtMassBase.Text == "Blackhole Mass Base:")
             {
-                txtBlackholeMass.Text = "";
-                txtBlackholeMass.ForeColor = Color.Black;
+                txtMassBase.Text = "";
+                txtMassBase.ForeColor = Color.Black;
             }
         }
 
-        private void txtBlackholeMass_Leave(object sender, EventArgs e)
+        private void txtMassBase_Leave(object sender, EventArgs e)
         {
-            if (txtBlackholeMass.Text == "")
+            if (txtMassBase.Text == "")
             {
-                txtBlackholeMass.Text = "Blackhole Mass:";
-                txtBlackholeMass.ForeColor = Color.Silver;
+                txtMassBase.Text = "Blackhole Mass Base:";
+                txtMassBase.ForeColor = Color.Silver;
             }
         }
 
@@ -215,11 +232,7 @@ namespace AstronomicalProcessorApp
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
-        {
-            //double baseValue = 8.2;
-            //int exponent = 36;
-            //double result = Math.Pow(baseValue, exponent);
-
+        {            
             string address = "net.pipe://localhost/pipemynumbers";
             NetNamedPipeBinding binding =
             new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
@@ -230,10 +243,11 @@ namespace AstronomicalProcessorApp
             txtFeedback.Text = "";
             try
             {
-                if (double.TryParse(txtBlackholeMass.Text, out double blackholeMass))
+                if (double.TryParse(txtMassBase.Text, out double massBase) && double.TryParse(txtPow.Text, out double massPow))
                 {
+                    double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                    txtFeedback.Text = $"{schwarzschildRadius}";
+                    txtFeedback.Text = $"{schwarzschildRadius:0.##E+00}";
                 }
                 else { txtFeedback.Text = "Empty input."; }
             }
@@ -260,6 +274,11 @@ namespace AstronomicalProcessorApp
                 else { txtFeedback.Text = "Empty input."; }
             }
             catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

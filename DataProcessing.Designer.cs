@@ -39,15 +39,18 @@
             this.txtArcsecondsAngle = new System.Windows.Forms.TextBox();
             this.btnStarDistance = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtBlackholeMass = new System.Windows.Forms.TextBox();
+            this.txtMassBase = new System.Windows.Forms.TextBox();
             this.txtPow = new System.Windows.Forms.TextBox();
             this.btnBlackholeEventHorizon = new System.Windows.Forms.Button();
             this.lvOutput = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.txtFeedback = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cboBody = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -185,7 +188,7 @@
             // groupBox4
             // 
             this.groupBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.groupBox4.Controls.Add(this.txtBlackholeMass);
+            this.groupBox4.Controls.Add(this.txtMassBase);
             this.groupBox4.Controls.Add(this.txtPow);
             this.groupBox4.Controls.Add(this.btnBlackholeEventHorizon);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,18 +199,18 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Event Horizon";
             // 
-            // txtBlackholeMass
+            // txtMassBase
             // 
-            this.txtBlackholeMass.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBlackholeMass.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtBlackholeMass.Location = new System.Drawing.Point(18, 47);
-            this.txtBlackholeMass.Margin = new System.Windows.Forms.Padding(2);
-            this.txtBlackholeMass.Name = "txtBlackholeMass";
-            this.txtBlackholeMass.Size = new System.Drawing.Size(161, 24);
-            this.txtBlackholeMass.TabIndex = 1;
-            this.txtBlackholeMass.Text = "Blackhole Mass:";
-            this.txtBlackholeMass.Enter += new System.EventHandler(this.txtBlackholeMass_Enter);
-            this.txtBlackholeMass.Leave += new System.EventHandler(this.txtBlackholeMass_Leave);
+            this.txtMassBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMassBase.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.txtMassBase.Location = new System.Drawing.Point(18, 47);
+            this.txtMassBase.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMassBase.Name = "txtMassBase";
+            this.txtMassBase.Size = new System.Drawing.Size(161, 24);
+            this.txtMassBase.TabIndex = 1;
+            this.txtMassBase.Text = "Blackhole Mass Base:";
+            this.txtMassBase.Enter += new System.EventHandler(this.txtMassBase_Enter);
+            this.txtMassBase.Leave += new System.EventHandler(this.txtMassBase_Leave);
             // 
             // txtPow
             // 
@@ -238,6 +241,7 @@
             // lvOutput
             // 
             this.lvOutput.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -250,28 +254,33 @@
             this.lvOutput.UseCompatibleStateImageBehavior = false;
             this.lvOutput.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Celestial Body";
+            this.columnHeader5.Width = 110;
+            // 
             // columnHeader1
             // 
             this.columnHeader1.Text = "Star Velocity";
-            this.columnHeader1.Width = 125;
+            this.columnHeader1.Width = 95;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Star Distance";
             this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 125;
+            this.columnHeader2.Width = 95;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Kelvin Temp.";
             this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 125;
+            this.columnHeader3.Width = 95;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "SchwarzschildRadius";
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 135;
+            this.columnHeader4.Width = 120;
             // 
             // txtFeedback
             // 
@@ -281,11 +290,31 @@
             this.txtFeedback.Size = new System.Drawing.Size(513, 43);
             this.txtFeedback.TabIndex = 4;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(39, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 25);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Celestial Body";
+            // 
+            // cboBody
+            // 
+            this.cboBody.FormattingEnabled = true;
+            this.cboBody.Location = new System.Drawing.Point(44, 50);
+            this.cboBody.Name = "cboBody";
+            this.cboBody.Size = new System.Drawing.Size(161, 21);
+            this.cboBody.TabIndex = 7;
+            // 
             // DataProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 523);
+            this.Controls.Add(this.cboBody);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtFeedback);
             this.Controls.Add(this.lvOutput);
             this.Controls.Add(this.groupBox3);
@@ -321,7 +350,7 @@
         private System.Windows.Forms.TextBox txtArcsecondsAngle;
         private System.Windows.Forms.Button btnStarDistance;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtBlackholeMass;
+        private System.Windows.Forms.TextBox txtMassBase;
         private System.Windows.Forms.TextBox txtPow;
         private System.Windows.Forms.Button btnBlackholeEventHorizon;
         private System.Windows.Forms.ListView lvOutput;
@@ -330,6 +359,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cboBody;
     }
 }
 
