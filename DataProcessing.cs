@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AstronomicalProcessorApp
 {
@@ -44,7 +45,7 @@ namespace AstronomicalProcessorApp
         // a double value with one decimal point, and one negative sign in the 1st position.
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
+            var textBox = sender as System.Windows.Forms.TextBox;
 
             // Allow digits, a single decimal point, a negative sign, and control characters
             if (!Regex.IsMatch(e.KeyChar.ToString(), @"[\d.\-\b]"))
@@ -183,9 +184,6 @@ namespace AstronomicalProcessorApp
         }
         #endregion
 
-        // Create a List<IAstroContract> instance.
-        //List<IAstroContract> calculator = new List<IAstroContract>();
-
         private void btnStarVelocity_Click(object sender, EventArgs e)
         {
             string address = "net.pipe://localhost/pipemynumbers";
@@ -203,6 +201,9 @@ namespace AstronomicalProcessorApp
                 {
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
                     txtFeedback.Text = $"{velocity}";
+                    displayValue($"{velocity}", 1);
+                    txtObservedWavelength.Clear();
+                    txtRestWavelength.Clear();
                 }
                 else { txtFeedback.Text = "Empty input."; }
             }
@@ -225,6 +226,8 @@ namespace AstronomicalProcessorApp
                 {
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
                     txtFeedback.Text = $"{parsecs}";
+                    displayValue($"{parsecs}", 2);
+                    txtArcsecondsAngle.Clear();
                 }
                 else { txtFeedback.Text = "Empty input."; }
             }
@@ -232,7 +235,7 @@ namespace AstronomicalProcessorApp
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
-        {            
+        {
             string address = "net.pipe://localhost/pipemynumbers";
             NetNamedPipeBinding binding =
             new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
@@ -248,6 +251,9 @@ namespace AstronomicalProcessorApp
                     double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
                     txtFeedback.Text = $"{schwarzschildRadius:0.##E+00}";
+                    displayValue($"{schwarzschildRadius:0.##E+00}", 4);
+                    txtMassBase.Clear();
+                    txtPow.Clear();
                 }
                 else { txtFeedback.Text = "Empty input."; }
             }
@@ -270,15 +276,37 @@ namespace AstronomicalProcessorApp
                 {
                     double kelvin = calculate.TemperatureConversion(celsius);
                     txtFeedback.Text = $"{kelvin}";
+                    displayValue($"{kelvin}", 3);
+                    txtCelsius.Clear();
                 }
                 else { txtFeedback.Text = "Empty input."; }
             }
             catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        // Listview output
+        private void displayValue(string value, int column)
         {
+            if (!string.IsNullOrEmpty(cboBody.Text))
+            {
+                // Create a ListViewItem
+                ListViewItem lvi = new ListViewItem(cboBody.Text);
 
+                // Add subitems to the ListViewItem, ensuring that the subitems list has enough elements
+                while (lvi.SubItems.Count <= column)
+                {
+                    lvi.SubItems.Add(string.Empty); // Add empty subitems for columns prior to the specified column
+                }
+
+                lvi.SubItems[column] = new ListViewItem.ListViewSubItem(lvi, value);
+
+                // Add the ListViewItem to the ListView
+                lvOutput.Items.Add(lvi);
+            }
+            else
+            {
+                txtFeedback.Text = "Please select or enter a body...";
+            }
         }
     }
 }
