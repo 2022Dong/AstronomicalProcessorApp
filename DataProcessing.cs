@@ -186,12 +186,7 @@ namespace AstronomicalProcessorApp
 
         private void btnStarVelocity_Click(object sender, EventArgs e)
         {
-            string address = "net.pipe://localhost/pipemynumbers";
-            NetNamedPipeBinding binding =
-            new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            EndpointAddress ep = new EndpointAddress(address);
-            IAstroContract calculate =
-            ChannelFactory<IAstroContract>.CreateChannel(binding, ep);
+            createInstance();
 
             txtFeedback.Text = "";
             try
@@ -212,12 +207,7 @@ namespace AstronomicalProcessorApp
 
         private void btnStarDistance_Click(object sender, EventArgs e)
         {
-            string address = "net.pipe://localhost/pipemynumbers";
-            NetNamedPipeBinding binding =
-            new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            EndpointAddress ep = new EndpointAddress(address);
-            IAstroContract calculate =
-            ChannelFactory<IAstroContract>.CreateChannel(binding, ep);
+            createInstance();
 
             txtFeedback.Text = "";
             try
@@ -236,12 +226,7 @@ namespace AstronomicalProcessorApp
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
         {
-            string address = "net.pipe://localhost/pipemynumbers";
-            NetNamedPipeBinding binding =
-            new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            EndpointAddress ep = new EndpointAddress(address);
-            IAstroContract calculate =
-            ChannelFactory<IAstroContract>.CreateChannel(binding, ep);
+            createInstance();
 
             txtFeedback.Text = "";
             try
@@ -262,12 +247,7 @@ namespace AstronomicalProcessorApp
 
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
         {
-            string address = "net.pipe://localhost/pipemynumbers";
-            NetNamedPipeBinding binding =
-            new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            EndpointAddress ep = new EndpointAddress(address);
-            IAstroContract calculate =
-            ChannelFactory<IAstroContract>.CreateChannel(binding, ep);
+            createInstance();
 
             txtFeedback.Text = "";
             try
@@ -282,6 +262,16 @@ namespace AstronomicalProcessorApp
                 else { txtFeedback.Text = "Empty input."; }
             }
             catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+        }
+        #region Custom Methods
+        // Connect and create an instance
+        private IAstroContract calculate; // Declare a class-level variable        
+        private void createInstance()
+        {
+            string address = "net.pipe://localhost/pipemynumbers";
+            NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
+            EndpointAddress ep = new EndpointAddress(address);
+            calculate = ChannelFactory<IAstroContract>.CreateChannel(binding, ep); // Store the instance in the class-level variable
         }
 
         // Listview output
@@ -308,5 +298,6 @@ namespace AstronomicalProcessorApp
                 txtFeedback.Text = "Please select or enter a body...";
             }
         }
+        #endregion
     }
 }
