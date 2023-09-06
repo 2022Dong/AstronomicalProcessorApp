@@ -19,27 +19,12 @@ namespace AstronomicalProcessorApp
         public DataProcessing()
         {
             InitializeComponent();
-
             // Load events: TextBox_KeyPress(...)
             LoadTxtKeyPress();
             PopulateComboBox();
         }
 
         #region Textbox Events
-        // Create a custom method to populate the ComboBox to read bodies from a simple text file. 
-        private void PopulateComboBox()
-        {
-            string filePath = "bodies.txt";
-            try
-            {
-                string[] bodies = File.ReadAllLines(filePath); // read all lines from file
-                cboBody.Items.AddRange(bodies); // add bodies to ComboBox
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error reading bodies from file: {ex.Message}");
-            }
-        }
 
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
@@ -184,6 +169,7 @@ namespace AstronomicalProcessorApp
         }
         #endregion
 
+        #region DLL Functions
         private void btnStarVelocity_Click(object sender, EventArgs e)
         {
             createInstance();
@@ -195,7 +181,6 @@ namespace AstronomicalProcessorApp
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
-                    stsMsg.Text = $"{velocity}";
                     displayValue($"{velocity}", 1);
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
@@ -215,7 +200,6 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
-                    stsMsg.Text = $"{parsecs}";
                     displayValue($"{parsecs}", 2);
                     txtArcsecondsAngle.Clear();
                 }
@@ -235,7 +219,6 @@ namespace AstronomicalProcessorApp
                 {
                     double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                    stsMsg.Text = $"{schwarzschildRadius:0.##E+00}";
                     displayValue($"{schwarzschildRadius:0.##E+00}", 4);
                     txtMassBase.Clear();
                     txtPow.Clear();
@@ -255,7 +238,6 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtCelsius.Text, out double celsius))
                 {
                     double kelvin = calculate.TemperatureConversion(celsius);
-                    stsMsg.Text = $"{kelvin}";
                     displayValue($"{kelvin}", 3);
                     txtCelsius.Clear();
                 }
@@ -263,6 +245,8 @@ namespace AstronomicalProcessorApp
             }
             catch { stsMsg.Text = "Something went wrong, is the server running?"; }
         }
+        #endregion
+
         #region Custom Methods
         // Connect and create an instance
         private IAstroContract calculate; // Declare a class-level variable        
@@ -296,6 +280,21 @@ namespace AstronomicalProcessorApp
             else
             {
                 stsMsg.Text = "Please select or enter a body...";
+            }
+        }
+
+        // Create a custom method to populate the ComboBox to read bodies from a simple text file. 
+        private void PopulateComboBox()
+        {
+            string filePath = "bodies.txt";
+            try
+            {
+                string[] bodies = File.ReadAllLines(filePath); // read all lines from file
+                cboBody.Items.AddRange(bodies); // add bodies to ComboBox
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reading bodies from file: {ex.Message}");
             }
         }
         #endregion

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataProcessing));
             this.txtObservedWavelength = new System.Windows.Forms.TextBox();
             this.txtRestWavelength = new System.Windows.Forms.TextBox();
             this.btnStarVelocity = new System.Windows.Forms.Button();
@@ -52,11 +53,19 @@
             this.cboBody = new System.Windows.Forms.ComboBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.stsMsg = new System.Windows.Forms.ToolStripStatusLabel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.msLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.English_UK = new System.Windows.Forms.ToolStripMenuItem();
+            this.French = new System.Windows.Forms.ToolStripMenuItem();
+            this.German = new System.Windows.Forms.ToolStripMenuItem();
+            this.msStyle = new System.Windows.Forms.ToolStripMenuItem();
+            this.msBackground = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtObservedWavelength
@@ -288,7 +297,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(39, 20);
+            this.label1.Location = new System.Drawing.Point(316, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 25);
             this.label1.TabIndex = 5;
@@ -297,7 +306,7 @@
             // cboBody
             // 
             this.cboBody.FormattingEnabled = true;
-            this.cboBody.Location = new System.Drawing.Point(44, 50);
+            this.cboBody.Location = new System.Drawing.Point(500, 52);
             this.cboBody.Name = "cboBody";
             this.cboBody.Size = new System.Drawing.Size(161, 21);
             this.cboBody.TabIndex = 7;
@@ -306,7 +315,7 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stsMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(972, 22);
             this.statusStrip1.TabIndex = 8;
@@ -318,12 +327,68 @@
             this.stsMsg.Size = new System.Drawing.Size(34, 17);
             this.stsMsg.Text = "Info: ";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.msLanguage,
+            this.msStyle,
+            this.msBackground});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(972, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // msLanguage
+            // 
+            this.msLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.English_UK,
+            this.French,
+            this.German});
+            this.msLanguage.Name = "msLanguage";
+            this.msLanguage.Size = new System.Drawing.Size(71, 20);
+            this.msLanguage.Text = "Language";
+            // 
+            // English_UK
+            // 
+            this.English_UK.Image = ((System.Drawing.Image)(resources.GetObject("English_UK.Image")));
+            this.English_UK.Name = "English_UK";
+            this.English_UK.Size = new System.Drawing.Size(180, 22);
+            this.English_UK.Text = "English (UK)";
+            // 
+            // French
+            // 
+            this.French.Image = ((System.Drawing.Image)(resources.GetObject("French.Image")));
+            this.French.Name = "French";
+            this.French.Size = new System.Drawing.Size(180, 22);
+            this.French.Text = "French";
+            // 
+            // German
+            // 
+            this.German.Image = ((System.Drawing.Image)(resources.GetObject("German.Image")));
+            this.German.Name = "German";
+            this.German.Size = new System.Drawing.Size(180, 22);
+            this.German.Text = "German";
+            // 
+            // msStyle
+            // 
+            this.msStyle.Name = "msStyle";
+            this.msStyle.Size = new System.Drawing.Size(44, 20);
+            this.msStyle.Text = "Style";
+            // 
+            // msBackground
+            // 
+            this.msBackground.Name = "msBackground";
+            this.msBackground.Size = new System.Drawing.Size(122, 20);
+            this.msBackground.Text = "Background Colour";
+            // 
             // DataProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 523);
+            this.ClientSize = new System.Drawing.Size(972, 555);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cboBody);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lvOutput);
@@ -331,6 +396,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DataProcessing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -345,6 +411,8 @@
             this.groupBox4.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,6 +443,13 @@
         private System.Windows.Forms.ComboBox cboBody;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel stsMsg;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem msLanguage;
+        private System.Windows.Forms.ToolStripMenuItem msStyle;
+        private System.Windows.Forms.ToolStripMenuItem English_UK;
+        private System.Windows.Forms.ToolStripMenuItem French;
+        private System.Windows.Forms.ToolStripMenuItem German;
+        private System.Windows.Forms.ToolStripMenuItem msBackground;
     }
 }
 
