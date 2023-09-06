@@ -59,6 +59,8 @@
             this.French = new System.Windows.Forms.ToolStripMenuItem();
             this.German = new System.Windows.Forms.ToolStripMenuItem();
             this.msStyle = new System.Windows.Forms.ToolStripMenuItem();
+            this.light = new System.Windows.Forms.ToolStripMenuItem();
+            this.dark = new System.Windows.Forms.ToolStripMenuItem();
             this.msBackground = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -353,28 +355,47 @@
             // 
             this.English_UK.Image = ((System.Drawing.Image)(resources.GetObject("English_UK.Image")));
             this.English_UK.Name = "English_UK";
-            this.English_UK.Size = new System.Drawing.Size(180, 22);
+            this.English_UK.Size = new System.Drawing.Size(138, 22);
             this.English_UK.Text = "English (UK)";
             // 
             // French
             // 
             this.French.Image = ((System.Drawing.Image)(resources.GetObject("French.Image")));
             this.French.Name = "French";
-            this.French.Size = new System.Drawing.Size(180, 22);
+            this.French.Size = new System.Drawing.Size(138, 22);
             this.French.Text = "French";
             // 
             // German
             // 
             this.German.Image = ((System.Drawing.Image)(resources.GetObject("German.Image")));
             this.German.Name = "German";
-            this.German.Size = new System.Drawing.Size(180, 22);
+            this.German.Size = new System.Drawing.Size(138, 22);
             this.German.Text = "German";
             // 
             // msStyle
             // 
+            this.msStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.light,
+            this.dark});
             this.msStyle.Name = "msStyle";
             this.msStyle.Size = new System.Drawing.Size(44, 20);
             this.msStyle.Text = "Style";
+            // 
+            // light
+            // 
+            this.light.Image = ((System.Drawing.Image)(resources.GetObject("light.Image")));
+            this.light.Name = "light";
+            this.light.Size = new System.Drawing.Size(180, 22);
+            this.light.Text = "Light";
+            this.light.Click += new System.EventHandler(this.light_Click);
+            // 
+            // dark
+            // 
+            this.dark.Image = ((System.Drawing.Image)(resources.GetObject("dark.Image")));
+            this.dark.Name = "dark";
+            this.dark.Size = new System.Drawing.Size(180, 22);
+            this.dark.Text = "Dark";
+            this.dark.Click += new System.EventHandler(this.dark_Click);
             // 
             // msBackground
             // 
@@ -450,6 +471,8 @@
         private System.Windows.Forms.ToolStripMenuItem French;
         private System.Windows.Forms.ToolStripMenuItem German;
         private System.Windows.Forms.ToolStripMenuItem msBackground;
+        private System.Windows.Forms.ToolStripMenuItem light;
+        private System.Windows.Forms.ToolStripMenuItem dark;
     }
 }
 

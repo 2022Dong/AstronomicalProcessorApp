@@ -11,6 +11,8 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Button = System.Windows.Forms.Button;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace AstronomicalProcessorApp
 {
@@ -23,6 +25,8 @@ namespace AstronomicalProcessorApp
             LoadTxtKeyPress();
             PopulateComboBox();
         }
+        private IAstroContract calculate; // Declare a class-level variable  
+        bool darkOn = false;
 
         #region Textbox Events
 
@@ -248,8 +252,7 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region Custom Methods
-        // Connect and create an instance
-        private IAstroContract calculate; // Declare a class-level variable        
+        // Connect and create an instance              
         private void createInstance()
         {
             string address = "net.pipe://localhost/pipemynumbers";
@@ -297,6 +300,77 @@ namespace AstronomicalProcessorApp
                 MessageBox.Show($"Error reading bodies from file: {ex.Message}");
             }
         }
+        #endregion
+
+        #region Menu
+        private void light_Click(object sender, EventArgs e)
+        {
+            BackgroundImage = null;
+            BackColor = Color.Bisque;
+            ForeColor = Color.Gold;
+            foreach (var button in Controls.OfType<Button>())
+            {
+                button.BackColor = Color.Firebrick;
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderColor = Color.OrangeRed;
+            }
+            foreach (var label in Controls.OfType<Label>())
+            {
+                label.ForeColor = Color.Green;
+            }
+            foreach (var textBox in Controls.OfType<TextBox>())
+            {
+                textBox.ForeColor = Color.DarkOrchid;
+            }
+        }
+
+        private void dark_Click(object sender, EventArgs e)
+        {
+            //if (darkOn)
+            //{
+            //    BackgroundImage = null;
+            //    BackColor = Color.Bisque;
+            //    ForeColor = Color.Gold;
+            //    foreach (var button in Controls.OfType<Button>())
+            //    {
+            //        button.BackColor = Color.Firebrick;
+            //        button.FlatStyle = FlatStyle.Flat;
+            //        button.FlatAppearance.BorderColor = Color.OrangeRed;
+            //    }
+            //    foreach (var label in Controls.OfType<Label>())
+            //    {
+            //        label.ForeColor = Color.Green;
+            //    }
+            //    foreach (var textBox in Controls.OfType<TextBox>())
+            //    {
+            //        textBox.ForeColor = Color.DarkOrchid;
+            //    }
+            //    darkOn = false;
+            //}
+            //else
+            //{
+                BackgroundImage = null;
+                BackColor = Color.DarkSlateBlue;
+                ForeColor = Color.LemonChiffon;
+                foreach (var button in Controls.OfType<Button>())
+                {
+                    button.BackColor = Color.SteelBlue;
+                    button.FlatStyle = FlatStyle.Flat;
+                    button.FlatAppearance.BorderColor = Color.SlateBlue;
+
+                }
+                foreach (var label in Controls.OfType<Label>())
+                {
+                    label.ForeColor = Color.LemonChiffon;
+                }
+                foreach (var textBox in Controls.OfType<TextBox>())
+                {
+                    textBox.ForeColor = Color.SeaGreen;
+                }
+                darkOn = true;
+            //}
+        }
+
         #endregion
     }
 }
