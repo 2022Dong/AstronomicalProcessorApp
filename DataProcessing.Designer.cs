@@ -48,13 +48,15 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.txtFeedback = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cboBody = new System.Windows.Forms.ComboBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.stsMsg = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtObservedWavelength
@@ -249,7 +251,7 @@
             this.lvOutput.HideSelection = false;
             this.lvOutput.Location = new System.Drawing.Point(232, 94);
             this.lvOutput.Name = "lvOutput";
-            this.lvOutput.Size = new System.Drawing.Size(513, 369);
+            this.lvOutput.Size = new System.Drawing.Size(513, 404);
             this.lvOutput.TabIndex = 3;
             this.lvOutput.UseCompatibleStateImageBehavior = false;
             this.lvOutput.View = System.Windows.Forms.View.Details;
@@ -282,14 +284,6 @@
             this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.columnHeader4.Width = 120;
             // 
-            // txtFeedback
-            // 
-            this.txtFeedback.Location = new System.Drawing.Point(232, 468);
-            this.txtFeedback.Multiline = true;
-            this.txtFeedback.Name = "txtFeedback";
-            this.txtFeedback.Size = new System.Drawing.Size(513, 43);
-            this.txtFeedback.TabIndex = 4;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -308,14 +302,30 @@
             this.cboBody.Size = new System.Drawing.Size(161, 21);
             this.cboBody.TabIndex = 7;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.stsMsg});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 501);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(972, 22);
+            this.statusStrip1.TabIndex = 8;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // stsMsg
+            // 
+            this.stsMsg.Name = "stsMsg";
+            this.stsMsg.Size = new System.Drawing.Size(34, 17);
+            this.stsMsg.Text = "Info: ";
+            // 
             // DataProcessing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(972, 523);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.cboBody);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtFeedback);
             this.Controls.Add(this.lvOutput);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -333,6 +343,8 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -354,7 +366,6 @@
         private System.Windows.Forms.TextBox txtPow;
         private System.Windows.Forms.Button btnBlackholeEventHorizon;
         private System.Windows.Forms.ListView lvOutput;
-        private System.Windows.Forms.TextBox txtFeedback;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -362,6 +373,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cboBody;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel stsMsg;
     }
 }
 

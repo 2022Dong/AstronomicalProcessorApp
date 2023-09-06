@@ -188,80 +188,80 @@ namespace AstronomicalProcessorApp
         {
             createInstance();
 
-            txtFeedback.Text = "";
+            stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
-                    txtFeedback.Text = $"{velocity}";
+                    stsMsg.Text = $"{velocity}";
                     displayValue($"{velocity}", 1);
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                 }
-                else { txtFeedback.Text = "Empty input."; }
+                else { stsMsg.Text = "Empty input."; }
             }
-            catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
         }
 
         private void btnStarDistance_Click(object sender, EventArgs e)
         {
             createInstance();
 
-            txtFeedback.Text = "";
+            stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
-                    txtFeedback.Text = $"{parsecs}";
+                    stsMsg.Text = $"{parsecs}";
                     displayValue($"{parsecs}", 2);
                     txtArcsecondsAngle.Clear();
                 }
-                else { txtFeedback.Text = "Empty input."; }
+                else { stsMsg.Text = "Empty input."; }
             }
-            catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
         {
             createInstance();
 
-            txtFeedback.Text = "";
+            stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtMassBase.Text, out double massBase) && double.TryParse(txtPow.Text, out double massPow))
                 {
                     double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                    txtFeedback.Text = $"{schwarzschildRadius:0.##E+00}";
+                    stsMsg.Text = $"{schwarzschildRadius:0.##E+00}";
                     displayValue($"{schwarzschildRadius:0.##E+00}", 4);
                     txtMassBase.Clear();
                     txtPow.Clear();
                 }
-                else { txtFeedback.Text = "Empty input."; }
+                else { stsMsg.Text = "Empty input."; }
             }
-            catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
         }
 
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
         {
             createInstance();
 
-            txtFeedback.Text = "";
+            stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtCelsius.Text, out double celsius))
                 {
                     double kelvin = calculate.TemperatureConversion(celsius);
-                    txtFeedback.Text = $"{kelvin}";
+                    stsMsg.Text = $"{kelvin}";
                     displayValue($"{kelvin}", 3);
                     txtCelsius.Clear();
                 }
-                else { txtFeedback.Text = "Empty input."; }
+                else { stsMsg.Text = "Empty input."; }
             }
-            catch { txtFeedback.Text = "Something went wrong, is the server running?"; }
+            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
         }
         #region Custom Methods
         // Connect and create an instance
@@ -295,7 +295,7 @@ namespace AstronomicalProcessorApp
             }
             else
             {
-                txtFeedback.Text = "Please select or enter a body...";
+                stsMsg.Text = "Please select or enter a body...";
             }
         }
         #endregion
