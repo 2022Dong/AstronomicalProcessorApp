@@ -370,7 +370,7 @@ namespace AstronomicalProcessorApp
                 darkOn = true;
             //}
         }
-
+        //
         #endregion
     }
 }
