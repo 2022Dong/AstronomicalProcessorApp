@@ -26,7 +26,6 @@ namespace AstronomicalProcessorApp
             PopulateComboBox();
         }
         private IAstroContract calculate; // Declare a class-level variable  
-        bool darkOn = false;
 
         #region Textbox Events
 
@@ -286,6 +285,16 @@ namespace AstronomicalProcessorApp
             }
         }
 
+        // Listview Reset
+        private void msClearListview_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to CLEAR all the records?", "Warning", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                lvOutput.Items.Clear();
+            }
+        }
+
         // Create a custom method to populate the ComboBox to read bodies from a simple text file. 
         private void PopulateComboBox()
         {
@@ -401,5 +410,6 @@ namespace AstronomicalProcessorApp
             }
         }
         #endregion
+                
     }
 }

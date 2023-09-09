@@ -62,6 +62,7 @@
             this.light = new System.Windows.Forms.ToolStripMenuItem();
             this.dark = new System.Windows.Forms.ToolStripMenuItem();
             this.msBackground = new System.Windows.Forms.ToolStripMenuItem();
+            this.msClearListview = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -348,10 +349,11 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msLanguage,
             this.msStyle,
-            this.msBackground});
+            this.msBackground,
+            this.msClearListview});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1296, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1296, 30);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -417,6 +419,13 @@
             this.msBackground.Size = new System.Drawing.Size(150, 24);
             this.msBackground.Text = "Background Colour";
             this.msBackground.Click += new System.EventHandler(this.msBackground_Click);
+            // 
+            // msClearListview
+            // 
+            this.msClearListview.Name = "msClearListview";
+            this.msClearListview.Size = new System.Drawing.Size(59, 26);
+            this.msClearListview.Text = "Reset";
+            this.msClearListview.Click += new System.EventHandler(this.msClearListview_Click);
             // 
             // DataProcessing
             // 
@@ -488,6 +497,7 @@
         private System.Windows.Forms.ToolStripMenuItem msBackground;
         private System.Windows.Forms.ToolStripMenuItem light;
         private System.Windows.Forms.ToolStripMenuItem dark;
+        private System.Windows.Forms.ToolStripMenuItem msClearListview;
     }
 }
 
