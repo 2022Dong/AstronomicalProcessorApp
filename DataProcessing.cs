@@ -28,7 +28,6 @@ namespace AstronomicalProcessorApp
         private IAstroContract calculate; // Declare a class-level variable  
 
         #region Textbox Events
-
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
