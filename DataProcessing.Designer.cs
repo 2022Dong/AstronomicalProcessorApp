@@ -74,10 +74,10 @@
             // 
             this.txtObservedWavelength.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservedWavelength.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtObservedWavelength.Location = new System.Drawing.Point(18, 47);
-            this.txtObservedWavelength.Margin = new System.Windows.Forms.Padding(2);
+            this.txtObservedWavelength.Location = new System.Drawing.Point(24, 58);
+            this.txtObservedWavelength.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtObservedWavelength.Name = "txtObservedWavelength";
-            this.txtObservedWavelength.Size = new System.Drawing.Size(161, 24);
+            this.txtObservedWavelength.Size = new System.Drawing.Size(213, 28);
             this.txtObservedWavelength.TabIndex = 1;
             this.txtObservedWavelength.Text = "Observed Wavelength:";
             this.txtObservedWavelength.Enter += new System.EventHandler(this.txtObservedWavelength_Enter);
@@ -87,10 +87,10 @@
             // 
             this.txtRestWavelength.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRestWavelength.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtRestWavelength.Location = new System.Drawing.Point(18, 87);
-            this.txtRestWavelength.Margin = new System.Windows.Forms.Padding(2);
+            this.txtRestWavelength.Location = new System.Drawing.Point(24, 107);
+            this.txtRestWavelength.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtRestWavelength.Name = "txtRestWavelength";
-            this.txtRestWavelength.Size = new System.Drawing.Size(161, 24);
+            this.txtRestWavelength.Size = new System.Drawing.Size(213, 28);
             this.txtRestWavelength.TabIndex = 0;
             this.txtRestWavelength.Text = "Rest Wavelength:";
             this.txtRestWavelength.Enter += new System.EventHandler(this.txtRestWavelength_Enter);
@@ -100,10 +100,10 @@
             // 
             this.btnStarVelocity.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnStarVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStarVelocity.Location = new System.Drawing.Point(18, 131);
-            this.btnStarVelocity.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStarVelocity.Location = new System.Drawing.Point(24, 161);
+            this.btnStarVelocity.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStarVelocity.Name = "btnStarVelocity";
-            this.btnStarVelocity.Size = new System.Drawing.Size(160, 36);
+            this.btnStarVelocity.Size = new System.Drawing.Size(213, 44);
             this.btnStarVelocity.TabIndex = 0;
             this.btnStarVelocity.Text = "Calculate";
             this.btnStarVelocity.UseVisualStyleBackColor = false;
@@ -115,9 +115,11 @@
             this.groupBox1.Controls.Add(this.txtRestWavelength);
             this.groupBox1.Controls.Add(this.btnStarVelocity);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(26, 93);
+            this.groupBox1.Location = new System.Drawing.Point(35, 114);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 190);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(267, 234);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Star Velocity";
@@ -127,9 +129,11 @@
             this.groupBox2.Controls.Add(this.txtCelsius);
             this.groupBox2.Controls.Add(this.btnTemperatureConversion);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(751, 342);
+            this.groupBox2.Location = new System.Drawing.Point(1001, 421);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 168);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(267, 207);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Celsius -> Kelvin";
@@ -138,10 +142,10 @@
             // 
             this.txtCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelsius.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtCelsius.Location = new System.Drawing.Point(18, 54);
-            this.txtCelsius.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCelsius.Location = new System.Drawing.Point(24, 66);
+            this.txtCelsius.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtCelsius.Name = "txtCelsius";
-            this.txtCelsius.Size = new System.Drawing.Size(161, 24);
+            this.txtCelsius.Size = new System.Drawing.Size(213, 28);
             this.txtCelsius.TabIndex = 1;
             this.txtCelsius.Text = "Celsius:";
             this.txtCelsius.Enter += new System.EventHandler(this.txtCelsius_Enter);
@@ -151,10 +155,10 @@
             // 
             this.btnTemperatureConversion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTemperatureConversion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTemperatureConversion.Location = new System.Drawing.Point(18, 107);
-            this.btnTemperatureConversion.Margin = new System.Windows.Forms.Padding(2);
+            this.btnTemperatureConversion.Location = new System.Drawing.Point(24, 132);
+            this.btnTemperatureConversion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTemperatureConversion.Name = "btnTemperatureConversion";
-            this.btnTemperatureConversion.Size = new System.Drawing.Size(160, 36);
+            this.btnTemperatureConversion.Size = new System.Drawing.Size(213, 44);
             this.btnTemperatureConversion.TabIndex = 0;
             this.btnTemperatureConversion.Text = "Calculate";
             this.btnTemperatureConversion.UseVisualStyleBackColor = false;
@@ -165,9 +169,11 @@
             this.groupBox3.Controls.Add(this.txtArcsecondsAngle);
             this.groupBox3.Controls.Add(this.btnStarDistance);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(26, 342);
+            this.groupBox3.Location = new System.Drawing.Point(35, 421);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 168);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(267, 207);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Star Distance";
@@ -176,10 +182,10 @@
             // 
             this.txtArcsecondsAngle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtArcsecondsAngle.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtArcsecondsAngle.Location = new System.Drawing.Point(18, 54);
-            this.txtArcsecondsAngle.Margin = new System.Windows.Forms.Padding(2);
+            this.txtArcsecondsAngle.Location = new System.Drawing.Point(24, 66);
+            this.txtArcsecondsAngle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtArcsecondsAngle.Name = "txtArcsecondsAngle";
-            this.txtArcsecondsAngle.Size = new System.Drawing.Size(161, 24);
+            this.txtArcsecondsAngle.Size = new System.Drawing.Size(213, 28);
             this.txtArcsecondsAngle.TabIndex = 1;
             this.txtArcsecondsAngle.Text = "Arcseconds angle:";
             this.txtArcsecondsAngle.Enter += new System.EventHandler(this.txtArcsecondsAngle_Enter);
@@ -189,10 +195,10 @@
             // 
             this.btnStarDistance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnStarDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStarDistance.Location = new System.Drawing.Point(18, 107);
-            this.btnStarDistance.Margin = new System.Windows.Forms.Padding(2);
+            this.btnStarDistance.Location = new System.Drawing.Point(24, 132);
+            this.btnStarDistance.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnStarDistance.Name = "btnStarDistance";
-            this.btnStarDistance.Size = new System.Drawing.Size(160, 36);
+            this.btnStarDistance.Size = new System.Drawing.Size(213, 44);
             this.btnStarDistance.TabIndex = 0;
             this.btnStarDistance.Text = "Calculate";
             this.btnStarDistance.UseVisualStyleBackColor = false;
@@ -205,9 +211,11 @@
             this.groupBox4.Controls.Add(this.txtPow);
             this.groupBox4.Controls.Add(this.btnBlackholeEventHorizon);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(751, 93);
+            this.groupBox4.Location = new System.Drawing.Point(1001, 114);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(200, 190);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox4.Size = new System.Drawing.Size(267, 234);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Event Horizon";
@@ -216,10 +224,10 @@
             // 
             this.txtMassBase.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMassBase.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtMassBase.Location = new System.Drawing.Point(18, 47);
-            this.txtMassBase.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMassBase.Location = new System.Drawing.Point(24, 58);
+            this.txtMassBase.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMassBase.Name = "txtMassBase";
-            this.txtMassBase.Size = new System.Drawing.Size(161, 24);
+            this.txtMassBase.Size = new System.Drawing.Size(213, 28);
             this.txtMassBase.TabIndex = 1;
             this.txtMassBase.Text = "Blackhole Mass Base:";
             this.txtMassBase.Enter += new System.EventHandler(this.txtMassBase_Enter);
@@ -229,10 +237,10 @@
             // 
             this.txtPow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPow.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.txtPow.Location = new System.Drawing.Point(18, 87);
-            this.txtPow.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPow.Location = new System.Drawing.Point(24, 107);
+            this.txtPow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPow.Name = "txtPow";
-            this.txtPow.Size = new System.Drawing.Size(161, 24);
+            this.txtPow.Size = new System.Drawing.Size(213, 28);
             this.txtPow.TabIndex = 0;
             this.txtPow.Text = "Power:  (x * 10)";
             this.txtPow.Enter += new System.EventHandler(this.txtPow_Enter);
@@ -242,10 +250,10 @@
             // 
             this.btnBlackholeEventHorizon.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnBlackholeEventHorizon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBlackholeEventHorizon.Location = new System.Drawing.Point(18, 131);
-            this.btnBlackholeEventHorizon.Margin = new System.Windows.Forms.Padding(2);
+            this.btnBlackholeEventHorizon.Location = new System.Drawing.Point(24, 161);
+            this.btnBlackholeEventHorizon.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnBlackholeEventHorizon.Name = "btnBlackholeEventHorizon";
-            this.btnBlackholeEventHorizon.Size = new System.Drawing.Size(160, 36);
+            this.btnBlackholeEventHorizon.Size = new System.Drawing.Size(213, 44);
             this.btnBlackholeEventHorizon.TabIndex = 0;
             this.btnBlackholeEventHorizon.Text = "Calculate";
             this.btnBlackholeEventHorizon.UseVisualStyleBackColor = false;
@@ -260,9 +268,10 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvOutput.HideSelection = false;
-            this.lvOutput.Location = new System.Drawing.Point(232, 94);
+            this.lvOutput.Location = new System.Drawing.Point(309, 116);
+            this.lvOutput.Margin = new System.Windows.Forms.Padding(4);
             this.lvOutput.Name = "lvOutput";
-            this.lvOutput.Size = new System.Drawing.Size(513, 404);
+            this.lvOutput.Size = new System.Drawing.Size(683, 496);
             this.lvOutput.TabIndex = 3;
             this.lvOutput.UseCompatibleStateImageBehavior = false;
             this.lvOutput.View = System.Windows.Forms.View.Details;
@@ -299,45 +308,50 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(316, 48);
+            this.label1.Location = new System.Drawing.Point(421, 59);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 25);
+            this.label1.Size = new System.Drawing.Size(202, 31);
             this.label1.TabIndex = 5;
             this.label1.Text = "Celestial Body";
             // 
             // cboBody
             // 
             this.cboBody.FormattingEnabled = true;
-            this.cboBody.Location = new System.Drawing.Point(500, 52);
+            this.cboBody.Location = new System.Drawing.Point(667, 64);
+            this.cboBody.Margin = new System.Windows.Forms.Padding(4);
             this.cboBody.Name = "cboBody";
-            this.cboBody.Size = new System.Drawing.Size(161, 21);
+            this.cboBody.Size = new System.Drawing.Size(213, 24);
             this.cboBody.TabIndex = 7;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stsMsg});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 533);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(972, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1296, 26);
             this.statusStrip1.TabIndex = 8;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // stsMsg
             // 
             this.stsMsg.Name = "stsMsg";
-            this.stsMsg.Size = new System.Drawing.Size(34, 17);
+            this.stsMsg.Size = new System.Drawing.Size(42, 20);
             this.stsMsg.Text = "Info: ";
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msLanguage,
             this.msStyle,
             this.msBackground});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(972, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1296, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -348,28 +362,28 @@
             this.French,
             this.German});
             this.msLanguage.Name = "msLanguage";
-            this.msLanguage.Size = new System.Drawing.Size(71, 20);
+            this.msLanguage.Size = new System.Drawing.Size(88, 24);
             this.msLanguage.Text = "Language";
             // 
             // English_UK
             // 
             this.English_UK.Image = ((System.Drawing.Image)(resources.GetObject("English_UK.Image")));
             this.English_UK.Name = "English_UK";
-            this.English_UK.Size = new System.Drawing.Size(138, 22);
+            this.English_UK.Size = new System.Drawing.Size(172, 26);
             this.English_UK.Text = "English (UK)";
             // 
             // French
             // 
             this.French.Image = ((System.Drawing.Image)(resources.GetObject("French.Image")));
             this.French.Name = "French";
-            this.French.Size = new System.Drawing.Size(138, 22);
+            this.French.Size = new System.Drawing.Size(172, 26);
             this.French.Text = "French";
             // 
             // German
             // 
             this.German.Image = ((System.Drawing.Image)(resources.GetObject("German.Image")));
             this.German.Name = "German";
-            this.German.Size = new System.Drawing.Size(138, 22);
+            this.German.Size = new System.Drawing.Size(172, 26);
             this.German.Text = "German";
             // 
             // msStyle
@@ -378,14 +392,14 @@
             this.light,
             this.dark});
             this.msStyle.Name = "msStyle";
-            this.msStyle.Size = new System.Drawing.Size(44, 20);
+            this.msStyle.Size = new System.Drawing.Size(55, 24);
             this.msStyle.Text = "Style";
             // 
             // light
             // 
             this.light.Image = ((System.Drawing.Image)(resources.GetObject("light.Image")));
             this.light.Name = "light";
-            this.light.Size = new System.Drawing.Size(180, 22);
+            this.light.Size = new System.Drawing.Size(125, 26);
             this.light.Text = "Light";
             this.light.Click += new System.EventHandler(this.light_Click);
             // 
@@ -393,21 +407,22 @@
             // 
             this.dark.Image = ((System.Drawing.Image)(resources.GetObject("dark.Image")));
             this.dark.Name = "dark";
-            this.dark.Size = new System.Drawing.Size(180, 22);
+            this.dark.Size = new System.Drawing.Size(125, 26);
             this.dark.Text = "Dark";
             this.dark.Click += new System.EventHandler(this.dark_Click);
             // 
             // msBackground
             // 
             this.msBackground.Name = "msBackground";
-            this.msBackground.Size = new System.Drawing.Size(122, 20);
+            this.msBackground.Size = new System.Drawing.Size(150, 24);
             this.msBackground.Text = "Background Colour";
+            this.msBackground.Click += new System.EventHandler(this.msBackground_Click);
             // 
             // DataProcessing
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 555);
+            this.ClientSize = new System.Drawing.Size(1296, 683);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.cboBody);
@@ -418,7 +433,7 @@
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DataProcessing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Data Processing";

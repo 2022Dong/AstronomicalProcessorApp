@@ -303,74 +303,103 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region Menu
+        // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
         private void light_Click(object sender, EventArgs e)
         {
+            // Background colour
             BackgroundImage = null;
-            BackColor = Color.Bisque;
-            ForeColor = Color.Gold;
-            foreach (var button in Controls.OfType<Button>())
+            BackColor = Color.LightGoldenrodYellow;
+            lvOutput.BackColor = Color.LightGoldenrodYellow;
+            menuStrip1.BackColor = Color.LightGoldenrodYellow;
+            statusStrip1.BackColor = Color.LightGoldenrodYellow;
+
+            // Text colour
+            ForeColor = Color.Black;
+            lvOutput.ForeColor = Color.Black;
+            menuStrip1.ForeColor = Color.Black;
+            statusStrip1.ForeColor = Color.Black;
+            foreach (var GroupBox in Controls.OfType<GroupBox>())
             {
-                button.BackColor = Color.Firebrick;
-                button.FlatStyle = FlatStyle.Flat;
-                button.FlatAppearance.BorderColor = Color.OrangeRed;
-            }
-            foreach (var label in Controls.OfType<Label>())
-            {
-                label.ForeColor = Color.Green;
-            }
-            foreach (var textBox in Controls.OfType<TextBox>())
-            {
-                textBox.ForeColor = Color.DarkOrchid;
+                GroupBox.ForeColor = Color.Black;
             }
         }
-
         private void dark_Click(object sender, EventArgs e)
         {
-            //if (darkOn)
-            //{
-            //    BackgroundImage = null;
-            //    BackColor = Color.Bisque;
-            //    ForeColor = Color.Gold;
-            //    foreach (var button in Controls.OfType<Button>())
-            //    {
-            //        button.BackColor = Color.Firebrick;
-            //        button.FlatStyle = FlatStyle.Flat;
-            //        button.FlatAppearance.BorderColor = Color.OrangeRed;
-            //    }
-            //    foreach (var label in Controls.OfType<Label>())
-            //    {
-            //        label.ForeColor = Color.Green;
-            //    }
-            //    foreach (var textBox in Controls.OfType<TextBox>())
-            //    {
-            //        textBox.ForeColor = Color.DarkOrchid;
-            //    }
-            //    darkOn = false;
-            //}
-            //else
-            //{
-                BackgroundImage = null;
-                BackColor = Color.DarkSlateBlue;
-                ForeColor = Color.LemonChiffon;
-                foreach (var button in Controls.OfType<Button>())
-                {
-                    button.BackColor = Color.SteelBlue;
-                    button.FlatStyle = FlatStyle.Flat;
-                    button.FlatAppearance.BorderColor = Color.SlateBlue;
+            // Background colour
+            BackgroundImage = null;
+            BackColor = Color.DarkGray;
+            lvOutput.BackColor = Color.DarkGray;
+            menuStrip1.BackColor = Color.DarkGray;
+            statusStrip1.BackColor = Color.DarkGray;
 
-                }
-                foreach (var label in Controls.OfType<Label>())
-                {
-                    label.ForeColor = Color.LemonChiffon;
-                }
+            // Text colour
+            ForeColor = Color.White;
+            lvOutput.ForeColor = Color.White;
+            menuStrip1.ForeColor = Color.White; 
+            statusStrip1.ForeColor = Color.White;
+            foreach (var GroupBox in Controls.OfType<GroupBox>())
+            {
+                GroupBox.ForeColor = Color.White;
+            }
+        }
+
+        // Q7_10 Menu/Button option to select a custom background colour from a colour palette (Color Dialogbox) 
+        private void msBackground_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDlg = new ColorDialog();
+            if (colorDlg.ShowDialog() == DialogResult.OK)
+            {
+                BackgroundImage = null;
+                // Change the background color of the form
+                BackColor = colorDlg.Color;
+                byte r = (byte)(255 - BackColor.R);
+                byte g = (byte)(255 - BackColor.G);
+                byte b = (byte)(255 - BackColor.B);
+                // Change the text color of the form
+                ForeColor = Color.FromArgb(r, g, b);
+
+                // Change the text color of all TextBox controls
                 foreach (var textBox in Controls.OfType<TextBox>())
                 {
-                    textBox.ForeColor = Color.SeaGreen;
+                    textBox.ForeColor = Color.FromArgb(r, g, b);
                 }
-                darkOn = true;
-            //}
+
+                // Change the background color of all GroupBox
+                foreach (var GroupBox in Controls.OfType<GroupBox>())
+                {
+                    GroupBox.ForeColor = Color.FromArgb(r, g, b);
+                }
+
+                // Change the background color of all GroupBox
+                foreach (var GroupBox in Controls.OfType<GroupBox>())
+                {
+                    GroupBox.ForeColor = Color.FromArgb(r, g, b);
+                }
+
+                // Change the background color of the componments
+                lvOutput.BackColor = colorDlg.Color;
+                menuStrip1.BackColor = colorDlg.Color;
+                statusStrip1.BackColor = colorDlg.Color;
+
+                // Change the font color (text color) of the componments
+                lvOutput.ForeColor = Color.FromArgb(r, g, b);
+                menuStrip1.ForeColor = Color.FromArgb(r, g, b);
+                statusStrip1.ForeColor = Color.FromArgb(r, g, b);
+
+                //// Change the background color of the ListView column headers
+                //lvOutput.OwnerDraw = true;
+                //lvOutput.DrawColumnHeader += (s, args) =>
+                //{
+                //    args.DrawBackground();
+                //    args.Graphics.FillRectangle(new SolidBrush(colorDlg.Color), args.Bounds);
+                //    args.Graphics.DrawString(args.Header.Text, this.Font,
+                //        new SolidBrush(Color.FromArgb(r, g, b)), args.Bounds);
+                //};
+
+                //// Refresh the ListView to apply the changes
+                //lvOutput.Refresh();
+            }
         }
-        //
         #endregion
     }
 }
