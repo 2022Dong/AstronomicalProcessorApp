@@ -417,7 +417,7 @@ namespace AstronomicalProcessorApp
 
         private void English_UK_Click(object sender, EventArgs e)
         {
-            ChangeLanguage("English (United Kingdom)");
+            ChangeLanguage("English");
         }
         private void French_Click(object sender, EventArgs e)
         {
@@ -432,7 +432,7 @@ namespace AstronomicalProcessorApp
             switch (language)
             {
                 case "English":
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-GB");
                     break;
                 case "French":
                     Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
