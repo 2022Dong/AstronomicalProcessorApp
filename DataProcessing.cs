@@ -8,6 +8,7 @@ using System.Linq;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -413,6 +414,36 @@ namespace AstronomicalProcessorApp
             }
         }
         #endregion
-                
+
+        private void English_UK_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("English (United Kingdom)");
+        }
+        private void French_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("French");
+        }
+        private void German_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("German");
+        }
+        private void ChangeLanguage(string language)
+        {
+            switch (language)
+            {
+                case "English":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en");
+                    break;
+                case "French":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+                    break;
+                case "German":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                    break;
+            }
+            Controls.Clear();
+            InitializeComponent();
+        }
+
     }
 }
