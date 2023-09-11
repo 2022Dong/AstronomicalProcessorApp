@@ -24,9 +24,13 @@ namespace AstronomicalProcessorApp
             InitializeComponent();
             // Load events: TextBox_KeyPress(...)
             LoadTxtKeyPress();
-            PopulateComboBox();
+            PopulateComboBox("English", "bodies.txt");
         }
         private IAstroContract calculate; // Declare a class-level variable  
+        // combobox
+        private string selectedLanguage = "English"; // Default language
+        private string filePath = "bodies.txt"; // Default file path
+        
 
         #region Textbox Events
         // A custom keypress method to ensure all the textboxes can only accept 
@@ -299,23 +303,58 @@ namespace AstronomicalProcessorApp
             }
         }
 
-        // Create a custom method to populate the ComboBox to read bodies from a simple text file. 
-        private void PopulateComboBox()
+        // Create a custom method to populate the ComboBox to read bodies from a simple text file.
+
+        private void PopulateComboBox(string language, string file)
         {
-            string filePath = "bodies.txt";
             try
             {
-                string[] bodies = File.ReadAllLines(filePath); // read all lines from file
-                cboBody.Items.AddRange(bodies); // add bodies to ComboBox
+                // You can use the 'language' and 'file' parameters in your method
+                string[] items = File.ReadAllLines(file); // Read all lines from the specified file
+                cboBody.Items.Clear(); // Clear existing items
+                cboBody.Items.AddRange(items); // Add items to ComboBox
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading bodies from file: {ex.Message}");
+                MessageBox.Show($"Error reading data from file: {ex.Message}");
             }
         }
         #endregion
 
         #region Menu
+        //Q7_8 Menu/Button option(s) to change the language and layout for the three different countries.
+        private void English_UK_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("English");
+            PopulateComboBox("English", "bodies.txt");
+        }
+        private void French_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("French");
+            PopulateComboBox("French", "bodies_fr.txt");
+        }
+        private void German_Click(object sender, EventArgs e)
+        {
+            ChangeLanguage("German");
+            PopulateComboBox("German", "bodies_de.txt");
+        }
+        private void ChangeLanguage(string language)
+        {
+            switch (language)
+            {
+                case "English":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-GB");
+                    break;
+                case "French":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
+                    break;
+                case "German":
+                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
+                    break;
+            }
+            Controls.Clear();
+            InitializeComponent();
+        }
         // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
         private void light_Click(object sender, EventArgs e)
         {
@@ -414,36 +453,7 @@ namespace AstronomicalProcessorApp
             }
         }
         #endregion
-
-        private void English_UK_Click(object sender, EventArgs e)
-        {
-            ChangeLanguage("English");
-        }
-        private void French_Click(object sender, EventArgs e)
-        {
-            ChangeLanguage("French");
-        }
-        private void German_Click(object sender, EventArgs e)
-        {
-            ChangeLanguage("German");
-        }
-        private void ChangeLanguage(string language)
-        {
-            switch (language)
-            {
-                case "English":
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("en-GB");
-                    break;
-                case "French":
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("fr-FR");
-                    break;
-                case "German":
-                    Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("de-DE");
-                    break;
-            }
-            Controls.Clear();
-            InitializeComponent();
-        }
+        
 
     }
 }
