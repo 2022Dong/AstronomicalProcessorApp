@@ -87,6 +87,7 @@
             resources.ApplyResources(this.txtRestWavelength, "txtRestWavelength");
             this.txtRestWavelength.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtRestWavelength.Name = "txtRestWavelength";
+            this.toolTip1.SetToolTip(this.txtRestWavelength, resources.GetString("txtRestWavelength.ToolTip"));
             this.txtRestWavelength.Enter += new System.EventHandler(this.txtRestWavelength_Enter);
             this.txtRestWavelength.Leave += new System.EventHandler(this.txtRestWavelength_Leave);
             // 
@@ -120,6 +121,7 @@
             resources.ApplyResources(this.txtCelsius, "txtCelsius");
             this.txtCelsius.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtCelsius.Name = "txtCelsius";
+            this.toolTip1.SetToolTip(this.txtCelsius, resources.GetString("txtCelsius.ToolTip"));
             this.txtCelsius.Enter += new System.EventHandler(this.txtCelsius_Enter);
             this.txtCelsius.Leave += new System.EventHandler(this.txtCelsius_Leave);
             // 
@@ -144,6 +146,7 @@
             resources.ApplyResources(this.txtArcsecondsAngle, "txtArcsecondsAngle");
             this.txtArcsecondsAngle.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtArcsecondsAngle.Name = "txtArcsecondsAngle";
+            this.toolTip1.SetToolTip(this.txtArcsecondsAngle, resources.GetString("txtArcsecondsAngle.ToolTip"));
             this.txtArcsecondsAngle.Enter += new System.EventHandler(this.txtArcsecondsAngle_Enter);
             this.txtArcsecondsAngle.Leave += new System.EventHandler(this.txtArcsecondsAngle_Leave);
             // 
@@ -169,6 +172,7 @@
             resources.ApplyResources(this.txtMassBase, "txtMassBase");
             this.txtMassBase.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMassBase.Name = "txtMassBase";
+            this.toolTip1.SetToolTip(this.txtMassBase, resources.GetString("txtMassBase.ToolTip"));
             this.txtMassBase.Enter += new System.EventHandler(this.txtMassBase_Enter);
             this.txtMassBase.Leave += new System.EventHandler(this.txtMassBase_Leave);
             // 

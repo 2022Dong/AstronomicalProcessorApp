@@ -28,7 +28,6 @@ namespace AstronomicalProcessorApp
             PopulateComboBox("English", "bodies.txt");
         }
         private IAstroContract calculate; // Declare a class-level variable
-        string language = Thread.CurrentThread.CurrentUICulture.Name;
         #region Textbox Events
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
@@ -190,10 +189,41 @@ namespace AstronomicalProcessorApp
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
                 }
-                else { stsMsg.Text = "Empty input1."; }
+                else
+                {
+                    stsMsg.Text = "Empty input.";
+                    string language = Thread.CurrentThread.CurrentUICulture.Name;
+                    switch (language)
+                    {
+                        case "en-GB":
+                            stsMsg.Text = "Empty input.";
+                            break;
+                        case "fr-FR":
+                            stsMsg.Text = "Entrée vide.";
+                            break;
+                        case "de-DE":
+                            stsMsg.Text = "Leere Eingabe.";
+                            break;
+                    }
+                }
             }
-            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
-
+            catch
+            {
+                stsMsg.Text = "Something went wrong, is the server running?";
+                string language = Thread.CurrentThread.CurrentUICulture.Name;
+                switch (language)
+                {
+                    case "en-GB":
+                        stsMsg.Text = "Something went wrong, is the server running?";
+                        break;
+                    case "fr-FR":
+                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                        break;
+                    case "de-DE":
+                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                        break;
+                }
+            }
         }
 
         private void btnStarDistance_Click(object sender, EventArgs e)
@@ -210,9 +240,41 @@ namespace AstronomicalProcessorApp
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
                 }
-                else { stsMsg.Text = "Empty input."; }
+                else
+                {
+                    stsMsg.Text = "Empty input.";
+                    string language = Thread.CurrentThread.CurrentUICulture.Name;
+                    switch (language)
+                    {
+                        case "en-GB":
+                            stsMsg.Text = "Empty input.";
+                            break;
+                        case "fr-FR":
+                            stsMsg.Text = "Entrée vide.";
+                            break;
+                        case "de-DE":
+                            stsMsg.Text = "Leere Eingabe.";
+                            break;
+                    }
+                }
             }
-            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
+            catch
+            {
+                stsMsg.Text = "Something went wrong, is the server running?";
+                string language = Thread.CurrentThread.CurrentUICulture.Name;
+                switch (language)
+                {
+                    case "en-GB":
+                        stsMsg.Text = "Something went wrong, is the server running?";
+                        break;
+                    case "fr-FR":
+                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                        break;
+                    case "de-DE":
+                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                        break;
+                }
+            }
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
@@ -231,9 +293,41 @@ namespace AstronomicalProcessorApp
                     txtPow.Clear();
                     cboBody.Text = "";
                 }
-                else { stsMsg.Text = "Empty input."; }
+                else
+                {
+                    stsMsg.Text = "Empty input.";
+                    string language = Thread.CurrentThread.CurrentUICulture.Name;
+                    switch (language)
+                    {
+                        case "en-GB":
+                            stsMsg.Text = "Empty input.";
+                            break;
+                        case "fr-FR":
+                            stsMsg.Text = "Entrée vide.";
+                            break;
+                        case "de-DE":
+                            stsMsg.Text = "Leere Eingabe.";
+                            break;
+                    }
+                }
             }
-            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
+            catch
+            {
+                stsMsg.Text = "Something went wrong, is the server running?";
+                string language = Thread.CurrentThread.CurrentUICulture.Name;
+                switch (language)
+                {
+                    case "en-GB":
+                        stsMsg.Text = "Something went wrong, is the server running?";
+                        break;
+                    case "fr-FR":
+                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                        break;
+                    case "de-DE":
+                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                        break;
+                }
+            }
         }
 
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
@@ -250,9 +344,44 @@ namespace AstronomicalProcessorApp
                     txtCelsius.Clear();
                     cboBody.Text = "";
                 }
-                else { stsMsg.Text = "Empty input."; }
+                else
+                {
+                    stsMsg.Text = "Empty input.";
+                    string language = Thread.CurrentThread.CurrentUICulture.Name;
+                    switch (language)
+                    {
+                        case "en-GB":
+                            stsMsg.Text = "Empty input.";
+                            break;
+                        case "fr-FR":
+                            stsMsg.Text = "Entrée vide.";
+                            break;
+                        case "de-DE":
+                            stsMsg.Text = "Leere Eingabe.";
+                            break;
+                    }
+                }
             }
-            catch { stsMsg.Text = "Something went wrong, is the server running?"; }
+            catch
+            {
+                stsMsg.Text = "Something went wrong, is the server running?";
+                string language = Thread.CurrentThread.CurrentUICulture.Name;
+                switch (language)
+                {
+                    case "en-GB":
+                        stsMsg.Text = "Something went wrong, is the server running?";
+                        break;
+                    case "fr-FR":
+                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                        break;
+                    case "de-DE":
+                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                        break;
+                    default:
+                        stsMsg.Text = "Please select or enter a body...";
+                        break;
+                }
+            }
         }
         #endregion
 
@@ -287,7 +416,22 @@ namespace AstronomicalProcessorApp
             }
             else
             {
-                stsMsg.Text = "Please select or enter a body...";
+                string language = Thread.CurrentThread.CurrentUICulture.Name;
+                switch (language)
+                {
+                    case "en-GB":
+                        stsMsg.Text = "Please select or enter a body...";
+                        break;
+                    case "fr-FR":
+                        stsMsg.Text = "Veuillez sélectionner ou saisir un corps...";
+                        break;
+                    case "de-DE":
+                        stsMsg.Text = "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
+                        break;
+                    default:
+                        stsMsg.Text = "Please select or enter a body...";
+                        break;
+                }
             }
         }
 
@@ -329,7 +473,6 @@ namespace AstronomicalProcessorApp
         {
             ChangeLanguage("French");
             PopulateComboBox("French", "bodies_fr.txt");
-            language = "French";
         }
         private void German_Click(object sender, EventArgs e)
         {
@@ -385,7 +528,7 @@ namespace AstronomicalProcessorApp
             // Text colour
             ForeColor = Color.White;
             lvOutput.ForeColor = Color.White;
-            menuStrip1.ForeColor = Color.White; 
+            menuStrip1.ForeColor = Color.White;
             statusStrip1.ForeColor = Color.White;
             foreach (var GroupBox in Controls.OfType<GroupBox>())
             {
