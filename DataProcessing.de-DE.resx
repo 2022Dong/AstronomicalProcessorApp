@@ -118,6 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="stsMsg.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 17</value>
+  </data>
+  <data name="stsMsg.Text" xml:space="preserve">
+    <value>Die Info:</value>
+  </data>
   <data name="English_UK.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAADACAMAAABCiUr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -158,6 +164,9 @@
         6gUcDbYgsLXjJ4E59QIOB9sQ2NbxTmBWvYDjwVYEtnQ8JNYLOB9sRmBDx8Nsvf+51wv4CmBDAld2fDX8
         Dz8X/uyWIPLOAAAAAElFTkSuQmCC
 </value>
+  </data>
+  <data name="English_UK.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
   </data>
   <data name="French.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -214,6 +223,9 @@
         uooZOmWGTpKhq5ihU2boJBm6ihk6XeP9AElh3JE9IF9aAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="French.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
+  </data>
   <data name="German.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAADACAYAAAB1V7rGAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
@@ -231,6 +243,9 @@
         BLIEEMgSQCBLAIEsAQSyBBDIEkAgSwCBLAEEsgQQyBJAIEsAgSwBBLIEEMgSQCBLAIEsAQSyBBDIEkAg
         SwCBqHN/K7tKfWNnSZIAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="German.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 22</value>
   </data>
   <data name="light.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -804,6 +819,9 @@
         3ODQw0ODtYGlhpSHjsPRYeikD9h//9k=
 </value>
   </data>
+  <data name="light.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 22</value>
+  </data>
   <data name="dark.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA8AAAAPABAMAAAAI+A2oAAAABGdBTUEAALGPC/xhBQAAABtQTFRF////
@@ -900,5 +918,8 @@
         X35cT9/eiXzkBrVCiz/qV3IDAAAAAAAAAAAAAAAAAAAAAAAAAADAQFn2P+qANN7wpG5AAAAAAElFTkSu
         QmCC
 </value>
+  </data>
+  <data name="dark.Size" type="System.Drawing.Size, System.Drawing">
+    <value>111, 22</value>
   </data>
 </root>

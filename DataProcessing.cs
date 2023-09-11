@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Resources;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,12 +27,8 @@ namespace AstronomicalProcessorApp
             LoadTxtKeyPress();
             PopulateComboBox("English", "bodies.txt");
         }
-        private IAstroContract calculate; // Declare a class-level variable  
-        // combobox
-        private string selectedLanguage = "English"; // Default language
-        private string filePath = "bodies.txt"; // Default file path
-        
-
+        private IAstroContract calculate; // Declare a class-level variable
+        string language = Thread.CurrentThread.CurrentUICulture.Name;
         #region Textbox Events
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
@@ -193,9 +190,10 @@ namespace AstronomicalProcessorApp
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
                 }
-                else { stsMsg.Text = "Empty input."; }
+                else { stsMsg.Text = "Empty input1."; }
             }
             catch { stsMsg.Text = "Something went wrong, is the server running?"; }
+
         }
 
         private void btnStarDistance_Click(object sender, EventArgs e)
@@ -303,8 +301,7 @@ namespace AstronomicalProcessorApp
             }
         }
 
-        // Create a custom method to populate the ComboBox to read bodies from a simple text file.
-
+        // Create a custom method to populate the ComboBox to read bodies from a choosed text file.
         private void PopulateComboBox(string language, string file)
         {
             try
@@ -332,6 +329,7 @@ namespace AstronomicalProcessorApp
         {
             ChangeLanguage("French");
             PopulateComboBox("French", "bodies_fr.txt");
+            language = "French";
         }
         private void German_Click(object sender, EventArgs e)
         {
@@ -452,8 +450,7 @@ namespace AstronomicalProcessorApp
                 //lvOutput.Refresh();
             }
         }
-        #endregion
-        
+        #endregion       
 
     }
 }
