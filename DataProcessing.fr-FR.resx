@@ -117,14 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtRestWavelength.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="btnStarVelocity.Text" xml:space="preserve">
     <value>Calculer</value>
-  </data>
-  <data name="btnStarVelocity.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="groupBox1.Font" type="System.Drawing.Font, System.Drawing">
@@ -133,29 +127,8 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Vitesse des étoiles</value>
   </data>
-  <data name="groupBox1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtCelsius.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="btnTemperatureConversion.Text" xml:space="preserve">
     <value>Calculer</value>
-  </data>
-  <data name="btnTemperatureConversion.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="groupBox2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtArcsecondsAngle.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnStarDistance.Text" xml:space="preserve">
-    <value>Calculer</value>
-  </data>
-  <data name="btnStarDistance.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
@@ -163,20 +136,8 @@
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Distance des étoiles</value>
   </data>
-  <data name="groupBox3.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtMassBase.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="txtPow.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="btnBlackholeEventHorizon.Text" xml:space="preserve">
+  <data name="btnStarDistance.Text" xml:space="preserve">
     <value>Calculer</value>
-  </data>
-  <data name="btnBlackholeEventHorizon.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
@@ -184,8 +145,8 @@
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Horizon des événements</value>
   </data>
-  <data name="groupBox4.ToolTip" xml:space="preserve">
-    <value />
+  <data name="btnBlackholeEventHorizon.Text" xml:space="preserve">
+    <value>Calculer</value>
   </data>
   <data name="columnHeader5.Text" xml:space="preserve">
     <value>Corps céleste</value>
@@ -202,23 +163,17 @@
   <data name="columnHeader4.Text" xml:space="preserve">
     <value>Rayon Schwarzschild</value>
   </data>
-  <data name="lvOutput.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>157, 25</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Corps céleste</value>
   </data>
-  <data name="label1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="msLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 20</value>
   </data>
-  <data name="cboBody.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="statusStrip1.ToolTip" xml:space="preserve">
-    <value />
+  <data name="msLanguage.Text" xml:space="preserve">
+    <value>Langue</value>
   </data>
   <data name="English_UK.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -351,12 +306,6 @@
   </data>
   <data name="German.Text" xml:space="preserve">
     <value>Allemand</value>
-  </data>
-  <data name="msLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 20</value>
-  </data>
-  <data name="msLanguage.Text" xml:space="preserve">
-    <value>Langue</value>
   </data>
   <data name="light.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1051,13 +1000,7 @@
   <data name="msClearListview.Text" xml:space="preserve">
     <value>Réinitialiser</value>
   </data>
-  <data name="menuStrip1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Traitement de l'information</value>
-  </data>
-  <data name="$this.ToolTip" xml:space="preserve">
-    <value />
   </data>
 </root>
