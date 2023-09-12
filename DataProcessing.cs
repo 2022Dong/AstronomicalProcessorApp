@@ -77,6 +77,7 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
+                    if (restWavelength == 0) { stsMsg.Text = divideByZero(restWavelength); return; }  // Divide by zero
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
                     displayValue($"{Math.Round(velocity, 4)}", 1);
                     txtObservedWavelength.Clear();
@@ -129,6 +130,7 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
+                    if (arcsecondsAngle == 0) { stsMsg.Text = divideByZero(arcsecondsAngle); return; }  // Divide by zero
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
                     displayValue($"{Math.Round(parsecs, 4)}", 2);
                     txtArcsecondsAngle.Clear();
@@ -353,6 +355,12 @@ namespace AstronomicalProcessorApp
             {
                 MessageBox.Show($"Error reading data from file: {ex.Message}");
             }
+        }
+
+        // Divide by zero
+        private string divideByZero(double x)
+        {
+            return "x/0";
         }
         #endregion
 
