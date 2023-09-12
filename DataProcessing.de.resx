@@ -127,10 +127,13 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Sterngeschwindigkeit</value>
   </data>
+  <data name="btnTemperatureConversion.Text" xml:space="preserve">
+    <value>Berechnung</value>
+  </data>
   <data name="groupBox2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 12pt, style=Bold</value>
   </data>
-  <data name="btnTemperatureConversion.Text" xml:space="preserve">
+  <data name="btnStarDistance.Text" xml:space="preserve">
     <value>Berechnung</value>
   </data>
   <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
@@ -139,7 +142,7 @@
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Sternentfernung</value>
   </data>
-  <data name="btnStarDistance.Text" xml:space="preserve">
+  <data name="btnBlackholeEventHorizon.Text" xml:space="preserve">
     <value>Berechnung</value>
   </data>
   <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
@@ -148,20 +151,11 @@
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Ereignishorizont</value>
   </data>
-  <data name="btnBlackholeEventHorizon.Text" xml:space="preserve">
-    <value>Berechnung</value>
-  </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>168, 25</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
     <value>Himmelskörper</value>
-  </data>
-  <data name="msLanguage.Size" type="System.Drawing.Size, System.Drawing">
-    <value>61, 20</value>
-  </data>
-  <data name="msLanguage.Text" xml:space="preserve">
-    <value>Sprache</value>
   </data>
   <data name="English_UK.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -205,7 +199,7 @@
 </value>
   </data>
   <data name="English_UK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>140, 22</value>
   </data>
   <data name="English_UK.Text" xml:space="preserve">
     <value>Englisch UK)</value>
@@ -266,7 +260,7 @@
 </value>
   </data>
   <data name="French.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>140, 22</value>
   </data>
   <data name="French.Text" xml:space="preserve">
     <value>Französisch</value>
@@ -290,16 +284,16 @@
 </value>
   </data>
   <data name="German.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>140, 22</value>
   </data>
   <data name="German.Text" xml:space="preserve">
     <value>Deutsch</value>
   </data>
-  <data name="msStyle.Size" type="System.Drawing.Size, System.Drawing">
-    <value>35, 20</value>
+  <data name="msLanguage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>61, 20</value>
   </data>
-  <data name="msStyle.Text" xml:space="preserve">
-    <value>Stil</value>
+  <data name="msLanguage.Text" xml:space="preserve">
+    <value>Sprache</value>
   </data>
   <data name="light.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -874,7 +868,7 @@
 </value>
   </data>
   <data name="light.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>111, 22</value>
   </data>
   <data name="light.Text" xml:space="preserve">
     <value>Licht</value>
@@ -977,10 +971,16 @@
 </value>
   </data>
   <data name="dark.Size" type="System.Drawing.Size, System.Drawing">
-    <value>184, 26</value>
+    <value>111, 22</value>
   </data>
   <data name="dark.Text" xml:space="preserve">
     <value>Dunkel</value>
+  </data>
+  <data name="msStyle.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 20</value>
+  </data>
+  <data name="msStyle.Text" xml:space="preserve">
+    <value>Stil</value>
   </data>
   <data name="msBackground.Size" type="System.Drawing.Size, System.Drawing">
     <value>111, 20</value>

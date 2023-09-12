@@ -118,6 +118,54 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>92, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Ruhewellenlänge:</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>133, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Beobachtete Wellenlänge:</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Bogensekundenwinkel:</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Leistung: (10 ** x)</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Massenbasis des Schwarzen Lochs:</value>
+  </data>
+  <data name="lvOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 416</value>
+  </data>
+  <data name="columnHeader5.Text" xml:space="preserve">
+    <value>Himmelskörper</value>
+  </data>
+  <data name="columnHeader1.Text" xml:space="preserve">
+    <value>Sterngeschwindigkeit</value>
+  </data>
+  <data name="columnHeader2.Text" xml:space="preserve">
+    <value>Sternentfernung</value>
+  </data>
+  <data name="columnHeader3.Text" xml:space="preserve">
+    <value>Kelvin-Temp.</value>
+  </data>
+  <data name="columnHeader4.Text" xml:space="preserve">
+    <value>Schwarzschild-Radius</value>
+  </data>
   <data name="stsMsg.Size" type="System.Drawing.Size, System.Drawing">
     <value>51, 17</value>
   </data>
@@ -166,7 +214,7 @@
 </value>
   </data>
   <data name="English_UK.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="French.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -224,7 +272,7 @@
 </value>
   </data>
   <data name="French.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="German.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -245,7 +293,7 @@
 </value>
   </data>
   <data name="German.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>184, 26</value>
   </data>
   <data name="light.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -819,9 +867,6 @@
         3ODQw0ODtYGlhpSHjsPRYeikD9h//9k=
 </value>
   </data>
-  <data name="light.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
-  </data>
   <data name="dark.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA8AAAAPABAMAAAAI+A2oAAAABGdBTUEAALGPC/xhBQAAABtQTFRF////
@@ -918,8 +963,5 @@
         X35cT9/eiXzkBrVCiz/qV3IDAAAAAAAAAAAAAAAAAAAAAAAAAADAQFn2P+qANN7wpG5AAAAAAElFTkSu
         QmCC
 </value>
-  </data>
-  <data name="dark.Size" type="System.Drawing.Size, System.Drawing">
-    <value>111, 22</value>
   </data>
 </root>

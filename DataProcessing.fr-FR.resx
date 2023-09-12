@@ -127,26 +127,59 @@
   <data name="groupBox1.Text" xml:space="preserve">
     <value>Vitesse des étoiles</value>
   </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 13</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Longueur d'onde de repos :</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 13</value>
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Longueur d'onde observée :</value>
+  </data>
   <data name="btnTemperatureConversion.Text" xml:space="preserve">
     <value>Calculer</value>
   </data>
   <data name="groupBox3.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 12.75pt, style=Bold</value>
   </data>
   <data name="groupBox3.Text" xml:space="preserve">
     <value>Distance des étoiles</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 13</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Angle des secondes d'arc :</value>
   </data>
   <data name="btnStarDistance.Text" xml:space="preserve">
     <value>Calculer</value>
   </data>
   <data name="groupBox4.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 14.25pt, style=Bold</value>
+    <value>Microsoft Sans Serif, 9.75pt, style=Bold</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
     <value>Horizon des événements</value>
   </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>102, 13</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Puissance : (10 ** x)</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 13</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Base de masse du trou noir :</value>
+  </data>
   <data name="btnBlackholeEventHorizon.Text" xml:space="preserve">
     <value>Calculer</value>
+  </data>
+  <data name="lvOutput.Size" type="System.Drawing.Size, System.Drawing">
+    <value>513, 416</value>
   </data>
   <data name="columnHeader5.Text" xml:space="preserve">
     <value>Corps céleste</value>

@@ -34,13 +34,19 @@
             this.txtRestWavelength = new System.Windows.Forms.TextBox();
             this.btnStarVelocity = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtCelsius = new System.Windows.Forms.TextBox();
             this.btnTemperatureConversion = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtArcsecondsAngle = new System.Windows.Forms.TextBox();
             this.btnStarDistance = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtMassBase = new System.Windows.Forms.TextBox();
             this.txtPow = new System.Windows.Forms.TextBox();
             this.btnBlackholeEventHorizon = new System.Windows.Forms.Button();
@@ -79,8 +85,6 @@
             this.txtObservedWavelength.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtObservedWavelength.Name = "txtObservedWavelength";
             this.toolTip1.SetToolTip(this.txtObservedWavelength, resources.GetString("txtObservedWavelength.ToolTip"));
-            this.txtObservedWavelength.Enter += new System.EventHandler(this.txtObservedWavelength_Enter);
-            this.txtObservedWavelength.Leave += new System.EventHandler(this.txtObservedWavelength_Leave);
             // 
             // txtRestWavelength
             // 
@@ -88,33 +92,55 @@
             this.txtRestWavelength.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtRestWavelength.Name = "txtRestWavelength";
             this.toolTip1.SetToolTip(this.txtRestWavelength, resources.GetString("txtRestWavelength.ToolTip"));
-            this.txtRestWavelength.Enter += new System.EventHandler(this.txtRestWavelength_Enter);
-            this.txtRestWavelength.Leave += new System.EventHandler(this.txtRestWavelength_Leave);
             // 
             // btnStarVelocity
             // 
-            this.btnStarVelocity.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.btnStarVelocity, "btnStarVelocity");
+            this.btnStarVelocity.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnStarVelocity.Name = "btnStarVelocity";
+            this.toolTip1.SetToolTip(this.btnStarVelocity, resources.GetString("btnStarVelocity.ToolTip"));
             this.btnStarVelocity.UseVisualStyleBackColor = false;
             this.btnStarVelocity.Click += new System.EventHandler(this.btnStarVelocity_Click);
             // 
             // groupBox1
             // 
+            resources.ApplyResources(this.groupBox1, "groupBox1");
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtObservedWavelength);
             this.groupBox1.Controls.Add(this.txtRestWavelength);
             this.groupBox1.Controls.Add(this.btnStarVelocity);
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
             // 
             // groupBox2
             // 
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.txtCelsius);
             this.groupBox2.Controls.Add(this.btnTemperatureConversion);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox2, resources.GetString("groupBox2.ToolTip"));
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            this.toolTip1.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // txtCelsius
             // 
@@ -122,24 +148,31 @@
             this.txtCelsius.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtCelsius.Name = "txtCelsius";
             this.toolTip1.SetToolTip(this.txtCelsius, resources.GetString("txtCelsius.ToolTip"));
-            this.txtCelsius.Enter += new System.EventHandler(this.txtCelsius_Enter);
-            this.txtCelsius.Leave += new System.EventHandler(this.txtCelsius_Leave);
             // 
             // btnTemperatureConversion
             // 
-            this.btnTemperatureConversion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.btnTemperatureConversion, "btnTemperatureConversion");
+            this.btnTemperatureConversion.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnTemperatureConversion.Name = "btnTemperatureConversion";
+            this.toolTip1.SetToolTip(this.btnTemperatureConversion, resources.GetString("btnTemperatureConversion.ToolTip"));
             this.btnTemperatureConversion.UseVisualStyleBackColor = false;
             this.btnTemperatureConversion.Click += new System.EventHandler(this.btnTemperatureConversion_Click);
             // 
             // groupBox3
             // 
+            resources.ApplyResources(this.groupBox3, "groupBox3");
+            this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.txtArcsecondsAngle);
             this.groupBox3.Controls.Add(this.btnStarDistance);
-            resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox3, resources.GetString("groupBox3.ToolTip"));
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.Name = "label4";
+            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // txtArcsecondsAngle
             // 
@@ -147,25 +180,39 @@
             this.txtArcsecondsAngle.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtArcsecondsAngle.Name = "txtArcsecondsAngle";
             this.toolTip1.SetToolTip(this.txtArcsecondsAngle, resources.GetString("txtArcsecondsAngle.ToolTip"));
-            this.txtArcsecondsAngle.Enter += new System.EventHandler(this.txtArcsecondsAngle_Enter);
-            this.txtArcsecondsAngle.Leave += new System.EventHandler(this.txtArcsecondsAngle_Leave);
             // 
             // btnStarDistance
             // 
-            this.btnStarDistance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.btnStarDistance, "btnStarDistance");
+            this.btnStarDistance.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnStarDistance.Name = "btnStarDistance";
+            this.toolTip1.SetToolTip(this.btnStarDistance, resources.GetString("btnStarDistance.ToolTip"));
             this.btnStarDistance.UseVisualStyleBackColor = false;
             this.btnStarDistance.Click += new System.EventHandler(this.btnStarDistance_Click);
             // 
             // groupBox4
             // 
             resources.ApplyResources(this.groupBox4, "groupBox4");
+            this.groupBox4.Controls.Add(this.label6);
+            this.groupBox4.Controls.Add(this.label5);
             this.groupBox4.Controls.Add(this.txtMassBase);
             this.groupBox4.Controls.Add(this.txtPow);
             this.groupBox4.Controls.Add(this.btnBlackholeEventHorizon);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.TabStop = false;
+            this.toolTip1.SetToolTip(this.groupBox4, resources.GetString("groupBox4.ToolTip"));
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.Name = "label6";
+            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            // 
+            // label5
+            // 
+            resources.ApplyResources(this.label5, "label5");
+            this.label5.Name = "label5";
+            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // txtMassBase
             // 
@@ -173,27 +220,26 @@
             this.txtMassBase.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtMassBase.Name = "txtMassBase";
             this.toolTip1.SetToolTip(this.txtMassBase, resources.GetString("txtMassBase.ToolTip"));
-            this.txtMassBase.Enter += new System.EventHandler(this.txtMassBase_Enter);
-            this.txtMassBase.Leave += new System.EventHandler(this.txtMassBase_Leave);
             // 
             // txtPow
             // 
             resources.ApplyResources(this.txtPow, "txtPow");
             this.txtPow.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.txtPow.Name = "txtPow";
-            this.txtPow.Enter += new System.EventHandler(this.txtPow_Enter);
-            this.txtPow.Leave += new System.EventHandler(this.txtPow_Leave);
+            this.toolTip1.SetToolTip(this.txtPow, resources.GetString("txtPow.ToolTip"));
             // 
             // btnBlackholeEventHorizon
             // 
-            this.btnBlackholeEventHorizon.BackColor = System.Drawing.SystemColors.ActiveCaption;
             resources.ApplyResources(this.btnBlackholeEventHorizon, "btnBlackholeEventHorizon");
+            this.btnBlackholeEventHorizon.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.btnBlackholeEventHorizon.Name = "btnBlackholeEventHorizon";
+            this.toolTip1.SetToolTip(this.btnBlackholeEventHorizon, resources.GetString("btnBlackholeEventHorizon.ToolTip"));
             this.btnBlackholeEventHorizon.UseVisualStyleBackColor = false;
             this.btnBlackholeEventHorizon.Click += new System.EventHandler(this.btnBlackholeEventHorizon_Click);
             // 
             // lvOutput
             // 
+            resources.ApplyResources(this.lvOutput, "lvOutput");
             this.lvOutput.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader5,
             this.columnHeader1,
@@ -201,8 +247,8 @@
             this.columnHeader3,
             this.columnHeader4});
             this.lvOutput.HideSelection = false;
-            resources.ApplyResources(this.lvOutput, "lvOutput");
             this.lvOutput.Name = "lvOutput";
+            this.toolTip1.SetToolTip(this.lvOutput, resources.GetString("lvOutput.ToolTip"));
             this.lvOutput.UseCompatibleStateImageBehavior = false;
             this.lvOutput.View = System.Windows.Forms.View.Details;
             // 
@@ -230,45 +276,49 @@
             // 
             resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
+            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // cboBody
             // 
-            this.cboBody.FormattingEnabled = true;
             resources.ApplyResources(this.cboBody, "cboBody");
+            this.cboBody.FormattingEnabled = true;
             this.cboBody.Name = "cboBody";
+            this.toolTip1.SetToolTip(this.cboBody, resources.GetString("cboBody.ToolTip"));
             // 
             // statusStrip1
             // 
+            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.stsMsg});
-            resources.ApplyResources(this.statusStrip1, "statusStrip1");
             this.statusStrip1.Name = "statusStrip1";
+            this.toolTip1.SetToolTip(this.statusStrip1, resources.GetString("statusStrip1.ToolTip"));
             // 
             // stsMsg
             // 
-            this.stsMsg.Name = "stsMsg";
             resources.ApplyResources(this.stsMsg, "stsMsg");
+            this.stsMsg.Name = "stsMsg";
             // 
             // menuStrip1
             // 
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.msLanguage,
             this.msStyle,
             this.msBackground,
             this.msClearListview});
-            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
+            this.toolTip1.SetToolTip(this.menuStrip1, resources.GetString("menuStrip1.ToolTip"));
             // 
             // msLanguage
             // 
+            resources.ApplyResources(this.msLanguage, "msLanguage");
             this.msLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.English_UK,
             this.French,
             this.German});
             this.msLanguage.Name = "msLanguage";
-            resources.ApplyResources(this.msLanguage, "msLanguage");
             // 
             // English_UK
             // 
@@ -290,11 +340,11 @@
             // 
             // msStyle
             // 
+            resources.ApplyResources(this.msStyle, "msStyle");
             this.msStyle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.light,
             this.dark});
             this.msStyle.Name = "msStyle";
-            resources.ApplyResources(this.msStyle, "msStyle");
             // 
             // light
             // 
@@ -310,14 +360,14 @@
             // 
             // msBackground
             // 
-            this.msBackground.Name = "msBackground";
             resources.ApplyResources(this.msBackground, "msBackground");
+            this.msBackground.Name = "msBackground";
             this.msBackground.Click += new System.EventHandler(this.msBackground_Click);
             // 
             // msClearListview
             // 
-            this.msClearListview.Name = "msClearListview";
             resources.ApplyResources(this.msClearListview, "msClearListview");
+            this.msClearListview.Name = "msClearListview";
             this.msClearListview.Click += new System.EventHandler(this.msClearListview_Click);
             // 
             // DataProcessing
@@ -335,6 +385,7 @@
             this.Controls.Add(this.groupBox1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "DataProcessing";
+            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -388,6 +439,12 @@
         private System.Windows.Forms.ToolStripMenuItem dark;
         private System.Windows.Forms.ToolStripMenuItem msClearListview;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
