@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Resources;
+using System.Runtime.Remoting.Lifetime;
 using System.ServiceModel;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -13,6 +14,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
 
@@ -84,41 +86,9 @@ namespace AstronomicalProcessorApp
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
                 }
-                else
-                {
-                    stsMsg.Text = "Empty input.";
-                    string language = Thread.CurrentThread.CurrentUICulture.Name;
-                    switch (language)
-                    {
-                        case "en-GB":
-                            stsMsg.Text = "Empty input.";
-                            break;
-                        case "fr-FR":
-                            stsMsg.Text = "Entrée vide.";
-                            break;
-                        case "de-DE":
-                            stsMsg.Text = "Leere Eingabe.";
-                            break;
-                    }
-                }
+                else { DisplayErrorMessage("Empty input"); }
             }
-            catch
-            {
-                stsMsg.Text = "Something went wrong, is the server running?";
-                string language = Thread.CurrentThread.CurrentUICulture.Name;
-                switch (language)
-                {
-                    case "en-GB":
-                        stsMsg.Text = "Something went wrong, is the server running?";
-                        break;
-                    case "fr-FR":
-                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-                        break;
-                    case "de-DE":
-                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
-                        break;
-                }
-            }
+            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnStarDistance_Click(object sender, EventArgs e)
@@ -136,41 +106,9 @@ namespace AstronomicalProcessorApp
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
                 }
-                else
-                {
-                    stsMsg.Text = "Empty input.";
-                    string language = Thread.CurrentThread.CurrentUICulture.Name;
-                    switch (language)
-                    {
-                        case "en-GB":
-                            stsMsg.Text = "Empty input.";
-                            break;
-                        case "fr-FR":
-                            stsMsg.Text = "Entrée vide.";
-                            break;
-                        case "de-DE":
-                            stsMsg.Text = "Leere Eingabe.";
-                            break;
-                    }
-                }
+                else { DisplayErrorMessage("Empty input"); }
             }
-            catch
-            {
-                stsMsg.Text = "Something went wrong, is the server running?";
-                string language = Thread.CurrentThread.CurrentUICulture.Name;
-                switch (language)
-                {
-                    case "en-GB":
-                        stsMsg.Text = "Something went wrong, is the server running?";
-                        break;
-                    case "fr-FR":
-                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-                        break;
-                    case "de-DE":
-                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
-                        break;
-                }
-            }
+            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
@@ -189,41 +127,9 @@ namespace AstronomicalProcessorApp
                     txtPow.Clear();
                     cboBody.Text = "";
                 }
-                else
-                {
-                    stsMsg.Text = "Empty input.";
-                    string language = Thread.CurrentThread.CurrentUICulture.Name;
-                    switch (language)
-                    {
-                        case "en-GB":
-                            stsMsg.Text = "Empty input.";
-                            break;
-                        case "fr-FR":
-                            stsMsg.Text = "Entrée vide.";
-                            break;
-                        case "de-DE":
-                            stsMsg.Text = "Leere Eingabe.";
-                            break;
-                    }
-                }
+                else { DisplayErrorMessage("Empty input"); }
             }
-            catch
-            {
-                stsMsg.Text = "Something went wrong, is the server running?";
-                string language = Thread.CurrentThread.CurrentUICulture.Name;
-                switch (language)
-                {
-                    case "en-GB":
-                        stsMsg.Text = "Something went wrong, is the server running?";
-                        break;
-                    case "fr-FR":
-                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-                        break;
-                    case "de-DE":
-                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
-                        break;
-                }
-            }
+            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
@@ -240,44 +146,9 @@ namespace AstronomicalProcessorApp
                     txtCelsius.Clear();
                     cboBody.Text = "";
                 }
-                else
-                {
-                    stsMsg.Text = "Empty input.";
-                    string language = Thread.CurrentThread.CurrentUICulture.Name;
-                    switch (language)
-                    {
-                        case "en-GB":
-                            stsMsg.Text = "Empty input.";
-                            break;
-                        case "fr-FR":
-                            stsMsg.Text = "Entrée vide.";
-                            break;
-                        case "de-DE":
-                            stsMsg.Text = "Leere Eingabe.";
-                            break;
-                    }
-                }
+                else { DisplayErrorMessage("Empty input"); }
             }
-            catch
-            {
-                stsMsg.Text = "Something went wrong, is the server running?";
-                string language = Thread.CurrentThread.CurrentUICulture.Name;
-                switch (language)
-                {
-                    case "en-GB":
-                        stsMsg.Text = "Something went wrong, is the server running?";
-                        break;
-                    case "fr-FR":
-                        stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-                        break;
-                    case "de-DE":
-                        stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
-                        break;
-                    default:
-                        stsMsg.Text = "Please select or enter a body...";
-                        break;
-                }
-            }
+            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
         #endregion
 
@@ -310,25 +181,7 @@ namespace AstronomicalProcessorApp
                 // Add the ListViewItem to the ListView
                 lvOutput.Items.Add(lvi);
             }
-            else
-            {
-                string language = Thread.CurrentThread.CurrentUICulture.Name;
-                switch (language)
-                {
-                    case "en-GB":
-                        stsMsg.Text = "Please select or enter a body...";
-                        break;
-                    case "fr-FR":
-                        stsMsg.Text = "Veuillez sélectionner ou saisir un corps...";
-                        break;
-                    case "de-DE":
-                        stsMsg.Text = "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
-                        break;
-                    default:
-                        stsMsg.Text = "Please select or enter a body...";
-                        break;
-                }
-            }
+            else { DisplayErrorMessage("Please select or enter a body..."); }
         }
 
         // Listview Reset
@@ -361,6 +214,51 @@ namespace AstronomicalProcessorApp
         private string divideByZero(double x)
         {
             return "x/0";
+        }
+        // The method that takes an error message key as a parameter and sets the localized error message based on the current UI culture.
+        private void DisplayErrorMessage(string errorMessageKey)
+        {
+            string language = Thread.CurrentThread.CurrentUICulture.Name;
+            switch (language)
+            {
+                case "en-GB":
+                    stsMsg.Text = errorMessageKey; break;
+                case "fr-FR":
+                    switch (errorMessageKey)
+                    {
+                        case "Empty input":
+                            stsMsg.Text = "Entrée vide.";
+                            break;
+                        case "Something went wrong, is the server running?":
+                            stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                            break;
+                        case "Please select or enter a body...":
+                            stsMsg.Text = "Veuillez sélectionner ou saisir un corps...";
+                            break;
+                        default:
+                            stsMsg.Text = errorMessageKey; break;
+                    }
+                    break;
+                case "de-DE":
+                    switch (errorMessageKey)
+                    {
+                        case "Empty input":
+                            stsMsg.Text = "Leere Eingabe.";
+                            break;
+                        case "Something went wrong, is the server running?":
+                            stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                            break;
+                        case "Please select or enter a body...":
+                            stsMsg.Text = "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
+                            break;
+                        default:
+                            stsMsg.Text = errorMessageKey; break;
+                    }
+                    break;
+                default:
+                    stsMsg.Text = errorMessageKey;
+                    break;
+            }
         }
         #endregion
 
