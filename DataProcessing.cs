@@ -87,13 +87,13 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
-                    if (restWavelength == 0) { divideByZero(restWavelength); return; }  // Divide by zero
-                    if (observedWavelength < 750.0 || observedWavelength > 380 || restWavelength < 750.0 || restWavelength > 380) { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; return; } // input range
-                    double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
-                    displayValue($"{Math.Round(velocity, 4)}m/s", 1);
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
+                    if (restWavelength == 0) { divideByZero(restWavelength); return; }  // Divide by zero
+                    if (observedWavelength < 750.0 || observedWavelength > 380 || restWavelength < 750.0 || restWavelength > 380) { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; return; } // input range
+                    double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
+                    displayValue($"{Math.Round(velocity, 4)}m/s", 1);                    
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
@@ -108,12 +108,12 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
+                    txtArcsecondsAngle.Clear();
+                    cboBody.Text = "";
                     if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle); return; }  // Divide by zero
                     if (arcsecondsAngle < 0 || arcsecondsAngle > 0) { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; return; } // input range
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
-                    displayValue($"{Math.Round(parsecs, 4)}pc", 2);
-                    txtArcsecondsAngle.Clear();
-                    cboBody.Text = "";
+                    displayValue($"{Math.Round(parsecs, 4)}pc", 2);                    
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
@@ -128,13 +128,13 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtMassBase.Text, out double massBase) && double.TryParse(txtPow.Text, out double massPow))
                 {
+                    txtMassBase.Clear();
+                    txtPow.Clear();
+                    cboBody.Text = "";
                     if (massBase <= 0) { stsMsg.Text = "x = > 0 kg"; return; } // input range
                     double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
                     displayValue($"{schwarzschildRadius:0.##E+00}metres", 4);
-                    txtMassBase.Clear();
-                    txtPow.Clear();
-                    cboBody.Text = "";
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
@@ -149,11 +149,11 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtCelsius.Text, out double celsius))
                 {
+                    txtCelsius.Clear();
+                    cboBody.Text = "";
                     if (celsius < -273.15) { stsMsg.Text = "x >= -273.15 °C"; return; } // input range
                     double kelvin = calculate.TemperatureConversion(celsius);
                     displayValue($"{Math.Round(kelvin, 4)}°K", 3);
-                    txtCelsius.Clear();
-                    cboBody.Text = "";
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
