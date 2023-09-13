@@ -28,6 +28,7 @@ namespace AstronomicalProcessorApp
             // Load events: TextBox_KeyPress(...)
             LoadTxtKeyPress();
             PopulateComboBox("English", "bodies.txt");
+            LightMode();
         }
         private IAstroContract calculate; // Declare a class-level variable
         #region Textbox Events
@@ -79,16 +80,16 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
-                    if (restWavelength == 0) { stsMsg.Text = divideByZero(restWavelength); return; }  // Divide by zero
+                    if (restWavelength == 0) { divideByZero(restWavelength); return; }  // Divide by zero
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
                     displayValue($"{Math.Round(velocity, 4)}", 1);
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
                 }
-                else { DisplayErrorMessage("Empty input"); }
+                else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
-            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
+            catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnStarDistance_Click(object sender, EventArgs e)
@@ -100,15 +101,15 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
-                    if (arcsecondsAngle == 0) { stsMsg.Text = divideByZero(arcsecondsAngle); return; }  // Divide by zero
+                    if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle); return; }  // Divide by zero
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
                     displayValue($"{Math.Round(parsecs, 4)}", 2);
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
                 }
-                else { DisplayErrorMessage("Empty input"); }
+                else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
-            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
+            catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
@@ -127,9 +128,9 @@ namespace AstronomicalProcessorApp
                     txtPow.Clear();
                     cboBody.Text = "";
                 }
-                else { DisplayErrorMessage("Empty input"); }
+                else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
-            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
+            catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
 
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
@@ -146,9 +147,9 @@ namespace AstronomicalProcessorApp
                     txtCelsius.Clear();
                     cboBody.Text = "";
                 }
-                else { DisplayErrorMessage("Empty input"); }
+                else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
-            catch { DisplayErrorMessage("Something went wrong, is the server running?"); }
+            catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
         #endregion
 
@@ -181,13 +182,13 @@ namespace AstronomicalProcessorApp
                 // Add the ListViewItem to the ListView
                 lvOutput.Items.Add(lvi);
             }
-            else { DisplayErrorMessage("Please select or enter a body..."); }
+            else { stsMsg.Text = DisplayErrorMessage("Please select or enter a body..."); }
         }
 
         // Listview Reset
         private void msClearListview_Click(object sender, EventArgs e)
         {
-            DialogResult result = MessageBox.Show("Do you want to CLEAR all the records?", "Warning", MessageBoxButtons.YesNo);
+            DialogResult result = MessageBox.Show(DisplayErrorMessage("Do you want to CLEAR all the records?"), "Warning", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 lvOutput.Items.Clear();
@@ -206,58 +207,59 @@ namespace AstronomicalProcessorApp
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error reading data from file: {ex.Message}");
+                MessageBox.Show($"{DisplayErrorMessage("Error reading data from file")}: {ex.Message}");
             }
         }
 
         // Divide by zero
-        private string divideByZero(double x)
+        private void divideByZero(double x)
         {
-            return "x/0";
+            stsMsg.Text = "x/0";
         }
         // The method that takes an error message key as a parameter and sets the localized error message based on the current UI culture.
-        private void DisplayErrorMessage(string errorMessageKey)
+        private string DisplayErrorMessage(string errorMessageKey)
         {
             string language = Thread.CurrentThread.CurrentUICulture.Name;
             switch (language)
             {
                 case "en-GB":
-                    stsMsg.Text = errorMessageKey; break;
+                    return errorMessageKey;
                 case "fr-FR":
                     switch (errorMessageKey)
                     {
                         case "Empty input":
-                            stsMsg.Text = "Entrée vide.";
-                            break;
+                            return "Entrée vide.";
                         case "Something went wrong, is the server running?":
-                            stsMsg.Text = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-                            break;
+                            return "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+
                         case "Please select or enter a body...":
-                            stsMsg.Text = "Veuillez sélectionner ou saisir un corps...";
-                            break;
+                            return "Veuillez sélectionner ou saisir un corps...";
+                        case "Do you want to CLEAR all the records?":
+                            return "Voulez-vous effacer tous les enregistrements ?";
+                        case "Error reading data from file":
+                            return "Erreur de lecture des données du fichier";
                         default:
-                            stsMsg.Text = errorMessageKey; break;
+                            return errorMessageKey;
+
                     }
-                    break;
                 case "de-DE":
                     switch (errorMessageKey)
                     {
                         case "Empty input":
-                            stsMsg.Text = "Leere Eingabe.";
-                            break;
+                            return "Leere Eingabe.";
                         case "Something went wrong, is the server running?":
-                            stsMsg.Text = "Es ist ein Fehler aufgetreten. Läuft der Server?";
-                            break;
+                            return "Es ist ein Fehler aufgetreten. Läuft der Server?";
                         case "Please select or enter a body...":
-                            stsMsg.Text = "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
-                            break;
+                            return "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
+                        case "Do you want to CLEAR all the records?":
+                            return "Möchten Sie alle Datensätze LÖSCHEN?";
+                        case "Error reading data from file":
+                            return "Fehler beim Lesen der Daten aus der Datei";
                         default:
-                            stsMsg.Text = errorMessageKey; break;
+                            return errorMessageKey;
                     }
-                    break;
                 default:
-                    stsMsg.Text = errorMessageKey;
-                    break;
+                    return errorMessageKey;
             }
         }
         #endregion
@@ -295,9 +297,9 @@ namespace AstronomicalProcessorApp
             }
             Controls.Clear();
             InitializeComponent();
+            LightMode();
         }
-        // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
-        private void light_Click(object sender, EventArgs e)
+        private void LightMode()
         {
             // Background colour
             BackgroundImage = null;
@@ -315,6 +317,11 @@ namespace AstronomicalProcessorApp
             {
                 GroupBox.ForeColor = Color.Black;
             }
+        }
+        // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
+        private void light_Click(object sender, EventArgs e)
+        {
+            LightMode();
         }
         private void dark_Click(object sender, EventArgs e)
         {
@@ -378,6 +385,7 @@ namespace AstronomicalProcessorApp
                 lvOutput.ForeColor = Color.FromArgb(r, g, b);
                 menuStrip1.ForeColor = Color.FromArgb(r, g, b);
                 statusStrip1.ForeColor = Color.FromArgb(r, g, b);
+
 
                 //// Change the background color of the ListView column headers
                 //lvOutput.OwnerDraw = true;
