@@ -28,16 +28,24 @@ namespace AstronomicalProcessorApp
             // Load events: TextBox_KeyPress(...)
             LoadTxtKeyPress();
             PopulateComboBox("English", "bodies.txt");
-            LightMode();
+            LightMode(); // Default style
         }
         private IAstroContract calculate; // Declare a class-level variable
+        // 6. Create the ServiceContract called “IAstroContract.cs” which will need to be identical to the server without a reference to the AstroMath.DLL.             
+        private void createInstance()
+        {
+            string address = "net.pipe://localhost/pipemynumbers";
+            NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
+            EndpointAddress ep = new EndpointAddress(address);
+            calculate = ChannelFactory<IAstroContract>.CreateChannel(binding, ep); // Store the instance in the class-level variable
+        }
+
         #region Textbox Events
         // A custom keypress method to ensure all the textboxes can only accept 
         // a double value with one decimal point, and one negative sign in the 1st position.
         private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             var textBox = sender as System.Windows.Forms.TextBox;
-
             // Allow digits, a single decimal point, a negative sign, and control characters
             if (!Regex.IsMatch(e.KeyChar.ToString(), @"[\d.\-\b]"))
             {
@@ -73,7 +81,6 @@ namespace AstronomicalProcessorApp
         private void btnStarVelocity_Click(object sender, EventArgs e)
         {
             createInstance();
-
             stsMsg.Text = "";
             try
             {
@@ -81,8 +88,9 @@ namespace AstronomicalProcessorApp
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
                     if (restWavelength == 0) { divideByZero(restWavelength); return; }  // Divide by zero
+                    if (observedWavelength < 750.0 || observedWavelength > 380 || restWavelength < 750.0 || restWavelength > 380) { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; return; } // input range
                     double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
-                    displayValue($"{Math.Round(velocity, 4)}", 1);
+                    displayValue($"{Math.Round(velocity, 4)}m/s", 1);
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
@@ -95,15 +103,15 @@ namespace AstronomicalProcessorApp
         private void btnStarDistance_Click(object sender, EventArgs e)
         {
             createInstance();
-
             stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
                     if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle); return; }  // Divide by zero
+                    if (arcsecondsAngle < 0 || arcsecondsAngle > 0) { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; return; } // input range
                     double parsecs = calculate.StarDistance(arcsecondsAngle);
-                    displayValue($"{Math.Round(parsecs, 4)}", 2);
+                    displayValue($"{Math.Round(parsecs, 4)}pc", 2);
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
                 }
@@ -115,15 +123,15 @@ namespace AstronomicalProcessorApp
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
         {
             createInstance();
-
             stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtMassBase.Text, out double massBase) && double.TryParse(txtPow.Text, out double massPow))
                 {
+                    if (massBase <= 0) { stsMsg.Text = "x = > 0 kg"; return; } // input range
                     double blackholeMass = massBase * Math.Pow(10, massPow);
                     double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                    displayValue($"{schwarzschildRadius:0.##E+00}", 4);
+                    displayValue($"{schwarzschildRadius:0.##E+00}metres", 4);
                     txtMassBase.Clear();
                     txtPow.Clear();
                     cboBody.Text = "";
@@ -136,14 +144,14 @@ namespace AstronomicalProcessorApp
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
         {
             createInstance();
-
             stsMsg.Text = "";
             try
             {
                 if (double.TryParse(txtCelsius.Text, out double celsius))
                 {
+                    if (celsius < -273.15) { stsMsg.Text = "x >= -273.15 °C"; return; } // input range
                     double kelvin = calculate.TemperatureConversion(celsius);
-                    displayValue($"{Math.Round(kelvin, 4)}", 3);
+                    displayValue($"{Math.Round(kelvin, 4)}°K", 3);
                     txtCelsius.Clear();
                     cboBody.Text = "";
                 }
@@ -154,14 +162,7 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region Custom Methods
-        // Connect and create an instance              
-        private void createInstance()
-        {
-            string address = "net.pipe://localhost/pipemynumbers";
-            NetNamedPipeBinding binding = new NetNamedPipeBinding(NetNamedPipeSecurityMode.None);
-            EndpointAddress ep = new EndpointAddress(address);
-            calculate = ChannelFactory<IAstroContract>.CreateChannel(binding, ep); // Store the instance in the class-level variable
-        }
+        
 
         // Listview output
         private void displayValue(string value, int column)
@@ -299,14 +300,15 @@ namespace AstronomicalProcessorApp
             InitializeComponent();
             LightMode();
         }
+        // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
         private void LightMode()
         {
             // Background colour
             BackgroundImage = null;
-            BackColor = Color.LightGoldenrodYellow;
-            lvOutput.BackColor = Color.LightGoldenrodYellow;
-            menuStrip1.BackColor = Color.LightGoldenrodYellow;
-            statusStrip1.BackColor = Color.LightGoldenrodYellow;
+            BackColor = Color.WhiteSmoke;
+            lvOutput.BackColor = Color.WhiteSmoke;
+            menuStrip1.BackColor = Color.WhiteSmoke;
+            statusStrip1.BackColor = Color.WhiteSmoke;
 
             // Text colour
             ForeColor = Color.Black;
@@ -317,11 +319,10 @@ namespace AstronomicalProcessorApp
             {
                 GroupBox.ForeColor = Color.Black;
             }
-        }
-        // Q7_9 Menu option to change the form’s style (colours and visual appearance). 
+        }        
         private void light_Click(object sender, EventArgs e)
         {
-            LightMode();
+            LightMode(); 
         }
         private void dark_Click(object sender, EventArgs e)
         {
@@ -401,7 +402,7 @@ namespace AstronomicalProcessorApp
                 //lvOutput.Refresh();
             }
         }
-        #endregion       
+        #endregion     
 
     }
 }
