@@ -1,0 +1,11 @@
+
+Mond
+Quecksilber
+Venus
+Erde
+Mars
+Jupiter
+Saturn
+Uranus
+Neptun
+Komet
