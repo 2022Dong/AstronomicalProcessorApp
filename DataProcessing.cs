@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -78,6 +79,8 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region DLL Functions
+
+        // StarVelocity
         private void btnStarVelocity_Click(object sender, EventArgs e)
         {
             createInstance();
@@ -87,19 +90,22 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
+                    if (restWavelength !=0 && observedWavelength < 750.0 && observedWavelength > 380 && restWavelength < 750.0 && restWavelength > 380) // input range
+                    {
+                        double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
+                        displayValue($"{Math.Round(velocity, 4)} m/s", 1);
+                    }
+                    else { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; }
+                    if (restWavelength == 0) { divideByZero(restWavelength);}  // Divide by zero 
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
-                    if (restWavelength == 0) { divideByZero(restWavelength); return; }  // Divide by zero
-                    if (observedWavelength < 750.0 || observedWavelength > 380 || restWavelength < 750.0 || restWavelength > 380) { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; return; } // input range
-                    double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
-                    displayValue($"{Math.Round(velocity, 4)}m/s", 1);                    
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
             catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
-
+        // StarDistance
         private void btnStarDistance_Click(object sender, EventArgs e)
         {
             createInstance();
@@ -108,18 +114,21 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtArcsecondsAngle.Text, out double arcsecondsAngle))
                 {
+                    if (arcsecondsAngle != 0 && (arcsecondsAngle > 0 && arcsecondsAngle < 1))
+                    {
+                        double parsecs = calculate.StarDistance(arcsecondsAngle);
+                        displayValue($"{Math.Round(parsecs, 4)} pc", 2);                        
+                    }
+                    else { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; }                    
+                    if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle);}  // Divide by zero
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
-                    if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle); return; }  // Divide by zero
-                    if (arcsecondsAngle < 0 || arcsecondsAngle > 0) { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; return; } // input range
-                    double parsecs = calculate.StarDistance(arcsecondsAngle);
-                    displayValue($"{Math.Round(parsecs, 4)}pc", 2);                    
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
             catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
-
+        // BlackholeEventHorizon
         private void btnBlackholeEventHorizon_Click(object sender, EventArgs e)
         {
             createInstance();
@@ -128,19 +137,22 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtMassBase.Text, out double massBase) && double.TryParse(txtPow.Text, out double massPow))
                 {
+                    if (massBase > 0)  // input range
+                    {
+                        double blackholeMass = massBase * Math.Pow(10, massPow);
+                        double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
+                        displayValue($"{schwarzschildRadius:0.##E+00} metres", 4);                        
+                    }
+                    else { stsMsg.Text = "x = > 0 kg";}
                     txtMassBase.Clear();
                     txtPow.Clear();
                     cboBody.Text = "";
-                    if (massBase <= 0) { stsMsg.Text = "x = > 0 kg"; return; } // input range
-                    double blackholeMass = massBase * Math.Pow(10, massPow);
-                    double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                    displayValue($"{schwarzschildRadius:0.##E+00}metres", 4);
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
             catch { stsMsg.Text = DisplayErrorMessage("Something went wrong, is the server running?"); }
         }
-
+        // TemperatureConversion
         private void btnTemperatureConversion_Click(object sender, EventArgs e)
         {
             createInstance();
@@ -149,11 +161,14 @@ namespace AstronomicalProcessorApp
             {
                 if (double.TryParse(txtCelsius.Text, out double celsius))
                 {
+                    if (celsius >= -273.15) // input range
+                    {
+                        double kelvin = calculate.TemperatureConversion(celsius);
+                        displayValue($"{Math.Round(kelvin, 4)} °K", 3);                        
+                    }
+                    else { stsMsg.Text = "x >= -273.15 °C"; }
                     txtCelsius.Clear();
                     cboBody.Text = "";
-                    if (celsius < -273.15) { stsMsg.Text = "x >= -273.15 °C"; return; } // input range
-                    double kelvin = calculate.TemperatureConversion(celsius);
-                    displayValue($"{Math.Round(kelvin, 4)}°K", 3);
                 }
                 else { stsMsg.Text = DisplayErrorMessage("Empty input"); }
             }
@@ -162,7 +177,6 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region Custom Methods
-        
 
         // Listview output
         private void displayValue(string value, int column)
@@ -177,15 +191,12 @@ namespace AstronomicalProcessorApp
                 {
                     lvi.SubItems.Add(string.Empty); // Add empty subitems for columns prior to the specified column
                 }
-
                 lvi.SubItems[column] = new ListViewItem.ListViewSubItem(lvi, value);
-
                 // Add the ListViewItem to the ListView
                 lvOutput.Items.Add(lvi);
             }
             else { stsMsg.Text = DisplayErrorMessage("Please select or enter a body..."); }
         }
-
         // Listview Reset
         private void msClearListview_Click(object sender, EventArgs e)
         {
@@ -195,7 +206,6 @@ namespace AstronomicalProcessorApp
                 lvOutput.Items.Clear();
             }
         }
-
         // Create a custom method to populate the ComboBox to read bodies from a choosed text file.
         private void PopulateComboBox(string language, string file)
         {
@@ -211,7 +221,6 @@ namespace AstronomicalProcessorApp
                 MessageBox.Show($"{DisplayErrorMessage("Error reading data from file")}: {ex.Message}");
             }
         }
-
         // Divide by zero
         private void divideByZero(double x)
         {
@@ -232,7 +241,6 @@ namespace AstronomicalProcessorApp
                             return "Entrée vide.";
                         case "Something went wrong, is the server running?":
                             return "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
-
                         case "Please select or enter a body...":
                             return "Veuillez sélectionner ou saisir un corps...";
                         case "Do you want to CLEAR all the records?":
@@ -266,6 +274,7 @@ namespace AstronomicalProcessorApp
         #endregion
 
         #region Menu
+
         //Q7_8 Menu/Button option(s) to change the language and layout for the three different countries.
         private void English_UK_Click(object sender, EventArgs e)
         {
@@ -319,10 +328,10 @@ namespace AstronomicalProcessorApp
             {
                 GroupBox.ForeColor = Color.Black;
             }
-        }        
+        }
         private void light_Click(object sender, EventArgs e)
         {
-            LightMode(); 
+            LightMode();
         }
         private void dark_Click(object sender, EventArgs e)
         {
@@ -343,7 +352,6 @@ namespace AstronomicalProcessorApp
                 GroupBox.ForeColor = Color.White;
             }
         }
-
         // Q7_10 Menu/Button option to select a custom background colour from a colour palette (Color Dialogbox) 
         private void msBackground_Click(object sender, EventArgs e)
         {
