@@ -90,13 +90,13 @@ namespace AstronomicalProcessorApp
                 if (double.TryParse(txtObservedWavelength.Text, out double observedWavelength) &&
                     double.TryParse(txtRestWavelength.Text, out double restWavelength))
                 {
-                    if (restWavelength !=0 && observedWavelength < 750.0 && observedWavelength > 380 && restWavelength < 750.0 && restWavelength > 380) // input range
+                    if (restWavelength != 0 && observedWavelength < 750.0 && observedWavelength > 380 && restWavelength < 750.0 && restWavelength > 380) // input range
                     {
                         double velocity = calculate.StarVelocity(observedWavelength, restWavelength);
                         displayValue($"{Math.Round(velocity, 4)} m/s", 1);
                     }
                     else { stsMsg.Text = "x = 380.0 ~ 750.0 nm"; }
-                    if (restWavelength == 0) { divideByZero(restWavelength);}  // Divide by zero 
+                    if (restWavelength == 0) { divideByZero(restWavelength); }  // Divide by zero 
                     txtObservedWavelength.Clear();
                     txtRestWavelength.Clear();
                     cboBody.Text = "";
@@ -117,10 +117,10 @@ namespace AstronomicalProcessorApp
                     if (arcsecondsAngle != 0 && (arcsecondsAngle > 0 && arcsecondsAngle < 1))
                     {
                         double parsecs = calculate.StarDistance(arcsecondsAngle);
-                        displayValue($"{Math.Round(parsecs, 4)} pc", 2);                        
+                        displayValue($"{Math.Round(parsecs, 4)} pc", 2);
                     }
-                    else { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; }                    
-                    if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle);}  // Divide by zero
+                    else { stsMsg.Text = "x = 0.0 ~ 1.0 arc"; }
+                    if (arcsecondsAngle == 0) { divideByZero(arcsecondsAngle); }  // Divide by zero
                     txtArcsecondsAngle.Clear();
                     cboBody.Text = "";
                 }
@@ -141,9 +141,9 @@ namespace AstronomicalProcessorApp
                     {
                         double blackholeMass = massBase * Math.Pow(10, massPow);
                         double schwarzschildRadius = calculate.BlackholeEventHorizon(blackholeMass);
-                        displayValue($"{schwarzschildRadius:0.##E+00} metres", 4);                        
+                        displayValue($"{schwarzschildRadius:0.##E+00} metres", 4);
                     }
-                    else { stsMsg.Text = "x = > 0 kg";}
+                    else { stsMsg.Text = "x = > 0 kg"; }
                     txtMassBase.Clear();
                     txtPow.Clear();
                     cboBody.Text = "";
@@ -164,7 +164,7 @@ namespace AstronomicalProcessorApp
                     if (celsius >= -273.15) // input range
                     {
                         double kelvin = calculate.TemperatureConversion(celsius);
-                        displayValue($"{Math.Round(kelvin, 4)} °K", 3);                        
+                        displayValue($"{Math.Round(kelvin, 4)} °K", 3);
                     }
                     else { stsMsg.Text = "x >= -273.15 °C"; }
                     txtCelsius.Clear();
@@ -229,47 +229,46 @@ namespace AstronomicalProcessorApp
         // The method that takes an error message key as a parameter and sets the localized error message based on the current UI culture.
         private string DisplayErrorMessage(string errorMessageKey)
         {
+            string output = "";
             string language = Thread.CurrentThread.CurrentUICulture.Name;
             switch (language)
             {
                 case "en-GB":
-                    return errorMessageKey;
+                    output = errorMessageKey; break;
                 case "fr-FR":
                     switch (errorMessageKey)
                     {
                         case "Empty input":
-                            return "Entrée vide.";
+                            output = "Entrée vide."; break;
                         case "Something went wrong, is the server running?":
-                            return "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?";
+                            output = "Quelque chose s'est mal passé, le serveur est-il en cours d'exécution ?"; break;
                         case "Please select or enter a body...":
-                            return "Veuillez sélectionner ou saisir un corps...";
+                            output = "Veuillez sélectionner ou saisir un corps..."; break;
                         case "Do you want to CLEAR all the records?":
-                            return "Voulez-vous effacer tous les enregistrements ?";
+                            output = "Voulez-vous effacer tous les enregistrements ?"; break;
                         case "Error reading data from file":
-                            return "Erreur de lecture des données du fichier";
+                            output = "Erreur de lecture des données du fichier"; break;
                         default:
-                            return errorMessageKey;
-
-                    }
+                            output = errorMessageKey; break;
+                    }; break;
                 case "de-DE":
                     switch (errorMessageKey)
                     {
                         case "Empty input":
-                            return "Leere Eingabe.";
+                            output = "Leere Eingabe."; break;
                         case "Something went wrong, is the server running?":
-                            return "Es ist ein Fehler aufgetreten. Läuft der Server?";
+                            output = "Es ist ein Fehler aufgetreten. Läuft der Server?"; break;
                         case "Please select or enter a body...":
-                            return "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein...";
+                            output = "Bitte wählen Sie einen Körper aus oder geben Sie ihn ein..."; break;
                         case "Do you want to CLEAR all the records?":
-                            return "Möchten Sie alle Datensätze LÖSCHEN?";
+                            output = "Möchten Sie alle Datensätze LÖSCHEN?"; break;
                         case "Error reading data from file":
-                            return "Fehler beim Lesen der Daten aus der Datei";
+                            output = "Fehler beim Lesen der Daten aus der Datei"; break;
                         default:
-                            return errorMessageKey;
-                    }
-                default:
-                    return errorMessageKey;
+                            output = errorMessageKey; break;
+                    }; break;
             }
+            return output;
         }
         #endregion
 
